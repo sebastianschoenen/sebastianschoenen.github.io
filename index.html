@@ -6,68 +6,79 @@
 <title>Dr. Sebastian Schoenen</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  :root{
-    --bg:#0a0a0f;--bg2:#111118;--bg3:#16161f;
-    --acc:#6c63ff;--acc2:#a78bfa;--acc3:#38bdf8;
-    --txt:#f0f0f8;--muted:#8888aa;--border:#2a2a3a;
-    --card:#14141e;
-  }
+  :root{--bg:#0a0a0f;--bg2:#111118;--acc:#6c63ff;--acc2:#a78bfa;--acc3:#38bdf8;--txt:#f0f0f8;--muted:#8888aa;--border:#2a2a3a;--card:#14141e}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
 
-  /* NAV */
+  /* ── NAV ── */
   nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem}
   .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
   .nav-logo{font-size:.95rem;font-weight:700;color:var(--acc2);letter-spacing:.05em}
   .nav-links{display:flex;gap:1.8rem;list-style:none}
   .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
   .nav-links a:hover{color:var(--txt)}
+  .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+  .nav-hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:all .3s}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-hamburger.open span:nth-child(2){opacity:0}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;z-index:99;background:rgba(10,10,15,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1rem 2rem 1.5rem;flex-direction:column;gap:.2rem}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:var(--muted);text-decoration:none;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;padding:.65rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+  .mobile-menu a:last-child{border-bottom:none}
+  .mobile-menu a:hover{color:var(--txt)}
 
-  /* HERO */
-  #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:60px}
-  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 40%,rgba(108,99,255,.18) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(56,189,248,.1) 0%,transparent 70%)}
-  .grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(108,99,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,.05) 1px,transparent 1px);background-size:60px 60px}
-  .container{max-width:1100px;margin:0 auto;padding:0 1rem}
   section{padding:100px 2rem}
+  .container{max-width:1100px;margin:0 auto}
 
-  .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;width:100%;display:flex;flex-direction:row;align-items:center;gap:4rem;padding:0 1rem}
-  .hero-photo-wrap{flex-shrink:0;display:flex;align-items:center;justify-content:center}
+  /* ── HERO ── */
+  #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:60px}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 40%,rgba(108,99,255,.18),transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(56,189,248,.1),transparent 70%)}
+  .grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(108,99,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,.05) 1px,transparent 1px);background-size:60px 60px}
+  .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;gap:4rem;padding:0 1rem}
   .hero-photo,.hero-photo-placeholder{width:220px;height:220px;border-radius:50%;border:3px solid rgba(108,99,255,.5);box-shadow:0 0 40px rgba(108,99,255,.25);object-fit:cover;display:block;flex-shrink:0}
   .hero-photo-placeholder{background:linear-gradient(135deg,var(--acc),var(--acc2));display:flex;align-items:center;justify-content:center;font-size:3.5rem;font-weight:900;color:#fff}
   .hero-text{flex:1;min-width:0}
   .hero-tag{display:inline-block;background:rgba(108,99,255,.15);border:1px solid rgba(108,99,255,.35);color:var(--acc2);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:.4rem 1rem;border-radius:99px;margin-bottom:1.5rem}
   .hero-name{font-size:clamp(2.2rem,5vw,4.5rem);font-weight:900;line-height:1.05;letter-spacing:-.02em;background:linear-gradient(135deg,#fff 40%,var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  .hero-title{font-size:clamp(.85rem,1.8vw,1.15rem);color:var(--acc3);font-weight:500;margin:.8rem 0 1.4rem;letter-spacing:.02em}
+  .hero-title{font-size:clamp(.85rem,1.8vw,1.15rem);color:var(--acc3);font-weight:500;margin:.8rem 0 1.4rem}
   .hero-quote{font-size:1rem;color:var(--muted);font-style:italic;margin-bottom:2rem;max-width:540px;border-left:3px solid var(--acc);padding-left:1rem}
   .hero-badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem}
-  .badge{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);font-size:.75rem;padding:.35rem .85rem;border-radius:99px;letter-spacing:.04em}
+  .badge{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);font-size:.75rem;padding:.35rem .85rem;border-radius:99px}
   .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
   .btn-pri{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;padding:.75rem 1.8rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:.9rem;transition:opacity .2s,transform .2s;display:inline-block}
   .btn-pri:hover{opacity:.85;transform:translateY(-2px)}
   .btn-sec{background:transparent;border:1px solid var(--border);color:var(--txt);padding:.75rem 1.8rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;transition:border-color .2s,transform .2s;display:inline-block}
   .btn-sec:hover{border-color:var(--acc2);transform:translateY(-2px)}
-  .hero-stats{display:flex;gap:2rem;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap}
-  .stat-num{font-size:2rem;font-weight:900;color:var(--acc2);line-height:1}
-  .stat-lbl{font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:.3rem}
+  .hero-stats{display:flex;gap:0;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap}
+  .hero-stat{flex:1;min-width:100px;padding:.5rem 1.2rem .5rem 0;border-right:1px solid var(--border)}
+  .hero-stat:last-child{border-right:none;padding-right:0;padding-left:1.2rem}
+  .hero-stat:not(:first-child):not(:last-child){padding-left:1.2rem}
+  .stat-num{font-size:1.75rem;font-weight:900;color:var(--acc2);line-height:1;white-space:nowrap}
+  .stat-lbl{font-size:.68rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-top:.35rem;line-height:1.3}
 
-  /* SECTION TITLES */
+  /* ── SHARED SECTION TYPOGRAPHY ── */
   .sec-label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:.6rem}
   .sec-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-.02em;margin-bottom:1rem}
   .sec-title span{background:linear-gradient(135deg,var(--acc2),var(--acc3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   .sec-line{width:60px;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:2px;margin-bottom:2.5rem}
 
-  /* ABOUT */
+  /* ── ABOUT ── */
   #about{background:var(--bg2)}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
   .about-text p{color:var(--muted);line-height:1.8;margin-bottom:1rem;font-size:.95rem}
   .about-text p strong{color:var(--txt)}
   .about-cards{display:flex;flex-direction:column;gap:1rem}
-  .info-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.4rem;display:flex;align-items:center;gap:1rem}
-  .info-icon{font-size:1.5rem;width:44px;height:44px;background:rgba(108,99,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .info-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.4rem;display:flex;align-items:center;gap:1rem;transition:border-color .2s}
+  .info-card:hover{border-color:rgba(108,99,255,.35)}
+  .info-icon{width:40px;height:40px;background:rgba(108,99,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--acc2)}
+  .info-icon svg{width:18px;height:18px;fill:currentColor}
   .info-card h4{font-size:.9rem;font-weight:700;color:var(--txt);margin-bottom:.15rem}
   .info-card p{font-size:.8rem;color:var(--muted)}
+  .info-card a{color:var(--acc3);text-decoration:none;font-size:.8rem;font-weight:600}
+  .info-card a:hover{text-decoration:underline}
 
-  /* EXPERIENCE */
+  /* ── EXPERIENCE ── */
   #experience{background:var(--bg)}
   .timeline{position:relative;padding-left:2rem}
   .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--acc),var(--acc2),transparent)}
@@ -80,42 +91,92 @@
   .t-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem}
   .t-tag{font-size:.7rem;background:rgba(108,99,255,.1);border:1px solid rgba(108,99,255,.2);color:var(--acc2);padding:.2rem .6rem;border-radius:99px}
 
-  /* SKILLS */
+  /* ── SKILLS ── */
   #skills{background:var(--bg2)}
   .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
-  .skill-cat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem}
-  .skill-cat h3{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--acc3);font-weight:700;margin-bottom:1rem}
-  .skill-item{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem}
-  .skill-name{font-size:.85rem;color:var(--txt)}
-  .skill-bar-wrap{width:55%;height:5px;background:var(--border);border-radius:99px;overflow:hidden}
-  .skill-bar{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+  .skill-cat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.6rem}
+  .skill-cat h3{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--acc3);font-weight:700;margin-bottom:1.2rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+  .skill-pills{display:flex;flex-wrap:wrap;gap:.5rem}
+  .skill-pill{font-size:.78rem;color:var(--txt);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:.35rem .8rem;border-radius:99px;transition:border-color .2s,color .2s}
+  .skill-pill:hover{border-color:rgba(108,99,255,.4);color:var(--acc2)}
 
-  /* PROJECTS */
+  /* ── IMPACT & INNOVATION ── */
   #projects{background:var(--bg)}
-  .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
-  .proj-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.6rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
-  .proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
-  .proj-card:hover{border-color:rgba(108,99,255,.45);transform:translateY(-4px)}
-  .proj-type{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:.3rem .7rem;border-radius:99px;display:inline-block;margin-bottom:.9rem}
-  .type-patent{background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.25)}
-  .type-pub{background:rgba(56,189,248,.1);color:var(--acc3);border:1px solid rgba(56,189,248,.25)}
-  .type-product{background:rgba(108,99,255,.1);color:var(--acc2);border:1px solid rgba(108,99,255,.25)}
-  .type-award{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.25)}
-  .proj-card h3{font-size:1rem;font-weight:800;color:var(--txt);margin-bottom:.6rem;line-height:1.4}
-  .proj-card p{font-size:.82rem;color:var(--muted);line-height:1.7}
-  .proj-meta{margin-top:1rem;font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:.5rem}
-  .proj-meta strong{color:var(--acc3)}
+  .impact-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:2.5rem}
+  .impact-stat{background:var(--card);padding:1.2rem 1.4rem}
+  .impact-stat-num{font-size:1.6rem;font-weight:900;color:var(--acc2);line-height:1}
+  .impact-stat-lbl{font-size:.68rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-top:.25rem;line-height:1.4}
 
-  /* VOLUNTEER */
+  .tab-bar{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2rem;padding:4px;background:var(--card);border:1px solid var(--border);border-radius:12px;width:fit-content}
+  .tab-btn{background:transparent;border:none;color:var(--muted);font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 1.1rem;border-radius:8px;cursor:pointer;transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:.4rem}
+  .tab-btn.active{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
+  .tab-btn:not(.active):hover{color:var(--txt);background:rgba(255,255,255,.05)}
+  .tab-count{background:rgba(255,255,255,.13);border-radius:99px;padding:.1rem .45rem;font-size:.65rem;font-weight:700}
+  .tab-btn:not(.active) .tab-count{background:rgba(255,255,255,.06);color:var(--muted)}
+
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem}
+  .proj-group{display:none}
+  .proj-group.visible{display:block}
+
+  .card-base{background:var(--card);border-radius:14px;padding:1.5rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;display:flex;flex-direction:column;gap:.55rem}
+  .card-base:hover{transform:translateY(-3px)}
+  .card-base h3{font-size:.95rem;font-weight:800;color:var(--txt);line-height:1.4}
+  .card-base p{font-size:.82rem;color:var(--muted);line-height:1.75;flex:1}
+  .card-meta{font-size:.72rem;color:var(--muted);padding-top:.6rem;border-top:1px solid var(--border)}
+  .card-meta strong{color:var(--acc3)}
+
+  .pill{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.25rem .7rem;border-radius:99px;display:inline-block;width:fit-content}
+
+  .awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  .award-card{background:var(--card);border:1px solid rgba(167,139,250,.2);border-radius:16px;padding:2rem 1.6rem 1.6rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+  .award-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+  .award-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(108,99,255,.07),transparent 70%);pointer-events:none}
+  .award-card:hover{border-color:rgba(167,139,250,.45);transform:translateY(-4px)}
+  .award-rank{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--acc2);margin-bottom:.9rem}
+  .award-card h3{font-size:1rem;font-weight:800;color:var(--txt);margin-bottom:.55rem;line-height:1.4}
+  .award-card p{font-size:.82rem;color:var(--muted);line-height:1.75}
+  .award-meta{margin-top:1rem;font-size:.72rem;color:var(--muted);padding-top:.7rem;border-top:1px solid var(--border)}
+  .award-meta strong{color:var(--acc2)}
+
+  .prod-card{border:1px solid var(--border)}
+  .prod-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+  .prod-card:hover{border-color:rgba(108,99,255,.45)}
+  .pill-flagship{background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.22)}
+  .pill-ai{background:rgba(108,99,255,.1);color:var(--acc2);border:1px solid rgba(108,99,255,.22)}
+  .pill-gen{background:rgba(56,189,248,.1);color:var(--acc3);border:1px solid rgba(56,189,248,.22)}
+
+  .patent-card{border:1px solid rgba(245,158,11,.15)}
+  .patent-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+  .patent-card:hover{border-color:rgba(245,158,11,.42)}
+  .pill-patent{background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.22)}
+  .patent-num{font-size:.72rem;color:#f59e0b;font-weight:600;font-family:'Courier New',monospace;letter-spacing:.03em;margin-top:.1rem}
+
+  .research-card{border:1px solid var(--border)}
+  .research-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc3),#818cf8)}
+  .research-card:hover{border-color:rgba(56,189,248,.35)}
+  .pill-research{background:rgba(56,189,248,.1);color:var(--acc3);border:1px solid rgba(56,189,248,.22)}
+
+  .pub-card{border:1px solid var(--border)}
+  .pub-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#818cf8,var(--acc3))}
+  .pub-card:hover{border-color:rgba(167,139,250,.35)}
+  .pill-pub{background:rgba(167,139,250,.1);color:var(--acc2);border:1px solid rgba(167,139,250,.22)}
+
+  .more-note{text-align:center;color:var(--muted);font-size:.82rem;font-style:italic;margin-top:1.5rem}
+  .more-note a{color:var(--acc3);text-decoration:none}
+  .more-note a:hover{text-decoration:underline}
+
+  /* ── VOLUNTEER ── */
   #volunteer{background:var(--bg2)}
   .vol-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
-  .vol-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem}
-  .vol-card h3{font-size:1rem;font-weight:800;margin-bottom:.3rem}
-  .vol-card .role{font-size:.85rem;color:var(--acc2);font-weight:600;margin-bottom:.4rem}
-  .vol-card p{font-size:.82rem;color:var(--muted);line-height:1.7}
-  .vol-period{font-size:.72rem;color:var(--muted);margin-top:.6rem}
+  .vol-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.6rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+  .vol-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc2),var(--acc3))}
+  .vol-card:hover{border-color:rgba(167,139,250,.35);transform:translateY(-3px)}
+  .vol-card h3{font-size:1rem;font-weight:800;margin-bottom:.3rem;color:var(--txt)}
+  .vol-card .role{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acc2);font-weight:700;margin-bottom:.6rem}
+  .vol-card p{font-size:.82rem;color:var(--muted);line-height:1.75}
+  .vol-period{font-size:.72rem;color:var(--muted);margin-top:.8rem;padding-top:.6rem;border-top:1px solid var(--border)}
 
-  /* CONTACT */
+  /* ── CONTACT ── */
   #contact{background:var(--bg);text-align:center}
   .contact-wrap{max-width:600px;margin:0 auto}
   .contact-wrap p{color:var(--muted);margin-bottom:2rem;font-size:.95rem}
@@ -124,19 +185,29 @@
 
   footer{background:var(--bg2);border-top:1px solid var(--border);text-align:center;padding:1.5rem;font-size:.78rem;color:var(--muted)}
 
+  /* ── RESPONSIVE ── */
+  @media(max-width:900px){
+    .awards-grid{grid-template-columns:1fr}
+    .impact-stats{grid-template-columns:repeat(2,1fr)}
+    .about-grid{grid-template-columns:1fr}
+  }
   @media(max-width:800px){
     .hero-inner{flex-direction:column;gap:2rem;text-align:center}
     .hero-photo,.hero-photo-placeholder{width:150px;height:150px}
-    .about-grid{grid-template-columns:1fr}
     .nav-links{display:none}
+    .nav-hamburger{display:flex}
     .hero-stats{justify-content:center}
-    .hero-badges{justify-content:center}
-    .hero-btns{justify-content:center}
+    .hero-badges,.hero-btns{justify-content:center}
+  }
+  @media(max-width:600px){
+    .tab-bar{width:100%}
+    .tab-btn{flex:1;justify-content:center;font-size:.68rem;padding:.5rem .6rem}
   }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <span class="nav-logo">Dr. Sebastian Schoenen</span>
@@ -145,18 +216,31 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#volunteer">Volunteer</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#volunteer" onclick="closeMenu()">Volunteer</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="grid-lines"></div>
   <div class="hero-inner">
-    <div class="hero-photo-wrap">
-      <div class="hero-photo-placeholder" id="photo-el">SS</div>
-    </div>
+    <div id="photo-el" class="hero-photo-placeholder">SS</div>
     <div class="hero-text">
       <div class="hero-tag">#AI4Claims · Cologne/Bonn Region · Germany</div>
       <div class="hero-name">Dr. Sebastian<br>Schoenen</div>
@@ -173,27 +257,23 @@
         <a href="#contact" class="btn-sec">Get in Touch</a>
       </div>
       <div class="hero-stats">
-        <div><div class="stat-num">173+</div><div class="stat-lbl">Publications</div></div>
-        <div><div class="stat-num">22.9K+</div><div class="stat-lbl">Citations</div></div>
-        <div><div class="stat-num">8+</div><div class="stat-lbl">Years at ControlExpert</div></div>
-        <div><div class="stat-num">7</div><div class="stat-lbl">Patents</div></div>
+        <div class="hero-stat"><div class="stat-num">173+</div><div class="stat-lbl">Publications</div></div>
+        <div class="hero-stat"><div class="stat-num">22,943+</div><div class="stat-lbl">Citations</div></div>
+        <div class="hero-stat"><div class="stat-num">8+</div><div class="stat-lbl">Years at ControlExpert</div></div>
+        <div class="hero-stat"><div class="stat-num">7</div><div class="stat-lbl">Patents</div></div>
       </div>
     </div>
   </div>
   <script>
     (function(){
       var img=new Image();
-      img.onload=function(){
-        img.className='hero-photo';
-        img.alt='Dr. Sebastian Schoenen';
-        var el=document.getElementById('photo-el');
-        el.parentNode.replaceChild(img,el);
-      };
-      img.src='https://i.ibb.co/2Qf9Z5p/Sebastian-Schoenen.jpg';
+      img.onload=function(){img.className='hero-photo';img.alt='Dr. Sebastian Schoenen';var el=document.getElementById('photo-el');el.parentNode.replaceChild(img,el);};
+      img.src='https://raw.githubusercontent.com/sebastianschoenen/sebastianschoenen.github.io/main/SebastianSchoenen.jpg';
     })();
   </script>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="sec-label">About Me</div>
@@ -202,111 +282,206 @@
     <div class="about-grid">
       <div class="about-text">
         <p>Experienced technology leader with deep expertise in <strong>data analytics, AI, and innovation</strong>. Currently serving as Director of Innovation &amp; Technology at ControlExpert GmbH and Head of Data &amp; AI Center of Excellence at Solvd Group.</p>
-        <p>Leading AI-driven projects in <strong>agentic AI, GenAI, image recognition, predictive modeling, natural language processing</strong>, and applied research for over eight years — transforming cutting-edge science into production-grade products that deliver real business value.</p>
-        <p>Former academic researcher at RWTH Aachen University holding a <strong>Ph.D. in Physics (Astroparticle Physics)</strong>. Proficient in machine learning, deep learning, advanced analytics, and data-driven decision-making, with a proven track record in managing R&amp;D and AI teams.</p>
+        <p>Leading AI-driven projects in <strong>agentic AI, GenAI, image recognition, predictive modeling, and natural language processing</strong> for over eight years — transforming cutting-edge science into production-grade products delivering real business value.</p>
+        <p>Former academic researcher at RWTH Aachen University holding a <strong>Ph.D. in Physics (Astroparticle Physics)</strong>. Proven track record in managing R&amp;D and AI teams to drive technological advancements across the global insurance industry.</p>
         <p>Passionate about building AI that is not just experimental — but <strong>architecturally sound, governed, and deployed responsibly at scale.</strong></p>
       </div>
       <div class="about-cards">
-        <div class="info-card"><div class="info-icon">🎓</div><div><h4>Ph.D. in Physics</h4><p>RWTH Aachen University · Astroparticle Physics · 2012–2017</p></div></div>
-        <div class="info-card"><div class="info-icon">🏢</div><div><h4>ControlExpert GmbH / Solvd Group</h4><p>Langenfeld (Rheinland) · 8+ years</p></div></div>
-        <div class="info-card"><div class="info-icon">📍</div><div><h4>Location</h4><p>Cologne/Bonn Region, Germany</p></div></div>
-        <div class="info-card"><div class="info-icon">🌐</div><div><h4>Languages</h4><p>German (Native) · English (Professional)</p></div></div>
-        <div class="info-card"><div class="info-icon">🔗</div><div><h4>LinkedIn</h4><p>linkedin.com/in/dr-sebastian-schoenen-b24898153</p></div></div>
+        <!-- Education -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+          </div>
+          <div><h4>Ph.D. in Physics</h4><p>RWTH Aachen University · Astroparticle Physics · 2012–2017</p></div>
+        </div>
+        <!-- Company -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+          </div>
+          <div><h4>ControlExpert GmbH / Solvd Group</h4><p>Langenfeld (Rheinland) · 8+ years</p></div>
+        </div>
+        <!-- Location -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div><h4>Location</h4><p>Cologne/Bonn Region, Germany</p></div>
+        </div>
+        <!-- Languages -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+          </div>
+          <div><h4>Languages</h4><p>German (Native) · English (Professional)</p></div>
+        </div>
+        <!-- LinkedIn -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div><h4>LinkedIn</h4><a href="https://www.linkedin.com/in/dr-sebastian-schoenen-b24898153/" target="_blank">View Profile →</a></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
     <div class="sec-label">Work Experience</div>
     <div class="sec-title">Career <span>Journey</span></div>
     <div class="sec-line"></div>
     <div class="timeline">
-      <div class="t-item"><div class="t-dot"></div><div class="t-period">Apr 2025 – Present</div><div class="t-role">Head of Data &amp; AI Center of Excellence</div><div class="t-company">Solvd Group · Hybrid</div><div class="t-desc">Leading the Data &amp; AI CoE embedded within the Product organization, driving AI into scalable products across claims &amp; repair management. Architecting the Claims Pilot — an agentic AI system for end-to-end motor claims handling live in production across global markets.</div><div class="t-tags"><span class="t-tag">Agentic AI</span><span class="t-tag">GenAI</span><span class="t-tag">Product-Led AI</span><span class="t-tag">Multi-Agent Systems</span></div></div>
-      <div class="t-item"><div class="t-dot"></div><div class="t-period">Apr 2023 – Present</div><div class="t-role">Director of Innovation &amp; Technology</div><div class="t-company">ControlExpert GmbH · On-site</div><div class="t-desc">Steering the technology and innovation strategy for AI in insurance claims. Leading cross-functional AI teams, overseeing R&amp;D pipeline, and driving industry partnerships including OpenGPT-X.</div><div class="t-tags"><span class="t-tag">Innovation Strategy</span><span class="t-tag">AI Leadership</span><span class="t-tag">InsurTech</span></div></div>
-      <div class="t-item"><div class="t-dot"></div><div class="t-period">Oct 2020 – Mar 2025</div><div class="t-role">Head of Research &amp; Development</div><div class="t-company">ControlExpert GmbH</div><div class="t-desc">Led the R&amp;D department, scaling AI research into production-ready solutions. Drove publications in peer-reviewed journals, patent development, and applied research in computer vision and uncertainty quantification for motor claims.</div><div class="t-tags"><span class="t-tag">Deep Learning</span><span class="t-tag">Computer Vision</span><span class="t-tag">Research Management</span></div></div>
-      <div class="t-item"><div class="t-dot"></div><div class="t-period">Apr 2019 – Jun 2023</div><div class="t-role">Product Manager AI Services</div><div class="t-company">ControlExpert GmbH</div><div class="t-desc">Managed AI product portfolio, bridging research and market needs. Shaped the product strategy for AI-driven claims automation services.</div><div class="t-tags"><span class="t-tag">AI Product Management</span><span class="t-tag">Claims Automation</span></div></div>
-      <div class="t-item"><div class="t-dot"></div><div class="t-period">Oct 2018 – Apr 2019</div><div class="t-role">Team Leader AI Image Recognition</div><div class="t-company">ControlExpert GmbH</div><div class="t-desc">Led a Data Science team developing image recognition systems using deep neural networks for vehicle damage assessment.</div><div class="t-tags"><span class="t-tag">CNNs</span><span class="t-tag">Image Recognition</span><span class="t-tag">Team Leadership</span></div></div>
+      <div class="t-item"><div class="t-dot"></div><div class="t-period">Apr 2025 – Present</div><div class="t-role">Head of Data &amp; AI Center of Excellence</div><div class="t-company">Solvd Group · Hybrid</div><div class="t-desc">Leading the Data &amp; AI CoE within the Product organization, driving AI into scalable products across claims &amp; repair management. Architecting the Claims Pilot — an agentic AI system for end-to-end motor claims handling live in production globally.</div><div class="t-tags"><span class="t-tag">Agentic AI</span><span class="t-tag">GenAI</span><span class="t-tag">Product-Led AI</span><span class="t-tag">Multi-Agent Systems</span></div></div>
+      <div class="t-item"><div class="t-dot"></div><div class="t-period">Apr 2023 – Present</div><div class="t-role">Director of Innovation &amp; Technology</div><div class="t-company">ControlExpert GmbH · On-site</div><div class="t-desc">Steering technology and innovation strategy for AI in insurance claims. Leading cross-functional AI teams, overseeing R&amp;D pipeline, driving industry partnerships including OpenGPT-X, HUMAINE, and Just Scan It 3D.</div><div class="t-tags"><span class="t-tag">Innovation Strategy</span><span class="t-tag">AI Leadership</span><span class="t-tag">InsurTech</span></div></div>
+      <div class="t-item"><div class="t-dot"></div><div class="t-period">Oct 2020 – Mar 2025</div><div class="t-role">Head of Research &amp; Development</div><div class="t-company">ControlExpert GmbH</div><div class="t-desc">Led the R&amp;D department, scaling AI research into production solutions. Drove peer-reviewed publications, patent development, and applied research in computer vision and uncertainty quantification for motor claims.</div><div class="t-tags"><span class="t-tag">Deep Learning</span><span class="t-tag">Computer Vision</span><span class="t-tag">Research Management</span></div></div>
+      <div class="t-item"><div class="t-dot"></div><div class="t-period">Apr 2019 – Jun 2023</div><div class="t-role">Product Manager AI Services</div><div class="t-company">ControlExpert GmbH</div><div class="t-desc">Managed AI product portfolio, bridging research and market needs. Shaped product strategy for AI-driven claims automation services.</div><div class="t-tags"><span class="t-tag">AI Product Management</span><span class="t-tag">Claims Automation</span></div></div>
+      <div class="t-item"><div class="t-dot"></div><div class="t-period">Oct 2018 – Apr 2019</div><div class="t-role">Team Leader AI Image Recognition</div><div class="t-company">ControlExpert GmbH</div><div class="t-desc">Led a Data Science team developing deep neural network image recognition systems for vehicle damage assessment.</div><div class="t-tags"><span class="t-tag">CNNs</span><span class="t-tag">Image Recognition</span><span class="t-tag">Team Leadership</span></div></div>
       <div class="t-item"><div class="t-dot"></div><div class="t-period">Feb 2018 – Sep 2018</div><div class="t-role">Data Scientist</div><div class="t-company">ControlExpert GmbH</div><div class="t-desc">Applied machine learning and data analytics to insurance claims data, laying the foundation for automated damage assessment pipelines.</div><div class="t-tags"><span class="t-tag">Machine Learning</span><span class="t-tag">Data Analytics</span></div></div>
-      <div class="t-item"><div class="t-dot"></div><div class="t-period">Feb 2017 – Jan 2018</div><div class="t-role">Data Scientist</div><div class="t-company">umlaut company · Aachen Region</div><div class="t-desc">Applied data science techniques in an industrial consulting context after completing doctoral research.</div><div class="t-tags"><span class="t-tag">Data Science</span><span class="t-tag">Consulting</span></div></div>
+      <div class="t-item"><div class="t-dot"></div><div class="t-period">Feb 2017 – Jan 2018</div><div class="t-role">Data Scientist</div><div class="t-company">umlaut company · Aachen Region</div><div class="t-desc">Applied data science in an industrial consulting context after completing doctoral research.</div><div class="t-tags"><span class="t-tag">Data Science</span><span class="t-tag">Consulting</span></div></div>
       <div class="t-item"><div class="t-dot"></div><div class="t-period">Oct 2012 – Jan 2017</div><div class="t-role">Research Associate (PhD Student)</div><div class="t-company">RWTH Aachen University · 3rd Physics Institute B</div><div class="t-desc">Doctoral research in Astroparticle Physics. Developed advanced statistical and machine learning methods for high-energy physics data analysis.</div><div class="t-tags"><span class="t-tag">Astroparticle Physics</span><span class="t-tag">Statistical Modelling</span><span class="t-tag">Academic Research</span></div></div>
     </div>
   </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
   <div class="container">
     <div class="sec-label">Skills</div>
     <div class="sec-title">Core <span>Expertise</span></div>
     <div class="sec-line"></div>
     <div class="skills-grid">
-      <div class="skill-cat"><h3>AI &amp; Machine Learning</h3>
-        <div class="skill-item"><span class="skill-name">Agentic AI / GenAI</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Deep Learning</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Computer Vision</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">NLP / NLU</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Predictive Modelling</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+      <div class="skill-cat">
+        <h3>AI &amp; Machine Learning</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Agentic AI</span>
+          <span class="skill-pill">Generative AI</span>
+          <span class="skill-pill">Deep Learning</span>
+          <span class="skill-pill">Computer Vision</span>
+          <span class="skill-pill">NLP / NLU</span>
+          <span class="skill-pill">Predictive Modelling</span>
+          <span class="skill-pill">Uncertainty Quantification</span>
+          <span class="skill-pill">Neural Architecture Search</span>
+        </div>
       </div>
-      <div class="skill-cat"><h3>Domain Expertise</h3>
-        <div class="skill-item"><span class="skill-name">Claims Management</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:98%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">InsurTech</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Repair Management</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Product-Led AI</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">AI Governance</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+      <div class="skill-cat">
+        <h3>Domain Expertise</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Claims Management</span>
+          <span class="skill-pill">InsurTech</span>
+          <span class="skill-pill">Repair Management</span>
+          <span class="skill-pill">Product-Led AI</span>
+          <span class="skill-pill">AI Governance</span>
+          <span class="skill-pill">Fraud Detection</span>
+          <span class="skill-pill">Damage Assessment</span>
+          <span class="skill-pill">Motor Insurance</span>
+        </div>
       </div>
-      <div class="skill-cat"><h3>Leadership &amp; Research</h3>
-        <div class="skill-item"><span class="skill-name">R&amp;D Management</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Innovation Strategy</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Academic Publishing</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Data Analytics</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Mathematics / Physics</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:93%"></div></div></div>
+      <div class="skill-cat">
+        <h3>Leadership &amp; Research</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">R&amp;D Management</span>
+          <span class="skill-pill">Innovation Strategy</span>
+          <span class="skill-pill">Academic Publishing</span>
+          <span class="skill-pill">Data Analytics</span>
+          <span class="skill-pill">Mathematics</span>
+          <span class="skill-pill">Astroparticle Physics</span>
+          <span class="skill-pill">Patent Development</span>
+          <span class="skill-pill">Team Leadership</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- IMPACT & INNOVATION -->
 <section id="projects">
   <div class="container">
-    <div class="sec-label">Projects · Publications · Patents · Awards</div>
-    <div class="sec-title">Research &amp; <span>Impact</span></div>
+    <div class="sec-label">Products · Research · Patents · Awards</div>
+    <div class="sec-title">Impact &amp; <span>Innovation</span></div>
     <div class="sec-line"></div>
-    <div class="proj-grid">
-      <div class="proj-card"><span class="proj-type type-product">🤖 Flagship Product</span><h3>Claims Pilot — Agentic AI for End-to-End Claims</h3><p>Production-grade multi-agent AI system for end-to-end motor claims handling. Processes multimodal inputs (voice, text, images, sensor data) and actively orchestrates the claims journey from FNOL to resolution — delivering reduced loss adjustment expense, faster cycle times, and improved customer satisfaction.</p><div class="proj-meta"><strong>Solvd Group / ControlExpert</strong> · Live in Production · 2024–Present</div></div>
 
-      <div class="proj-card"><span class="proj-type type-patent">📜 Patent · US · EP · JP · DE</span><h3>Method for Assessing Damage to a Motor Vehicle</h3><p>AI-based method for evaluating vehicle damage from image files. Determines damage presence, severity, and extent across vehicle zones — automatically deciding whether individual parts require repair or full replacement.</p><div class="proj-meta"><strong>US11397972B2 · EP3736758A1</strong> · Issued July 26, 2022 · ControlExpert GmbH</div></div>
-
-      <div class="proj-card"><span class="proj-type type-patent">📜 Patent · DE</span><h3>Automatic Detection of Vehicle Damage in the Event of an Accident</h3><p>Covers continuous acquisition of acceleration, speed, and yaw rate values while driving to enable automatic, sensor-based detection of vehicle damage in accident scenarios.</p><div class="proj-meta"><strong>DE102019105535A1</strong> · Priority 2019-03-05 · ControlExpert GmbH</div></div>
-
-      <div class="proj-card"><span class="proj-type type-patent">📜 Patent · DE</span><h3>Automatic Detection of Damage Events from Image Material</h3><p>Method, computer program, data storage unit, and system for automatically detecting damage events using image material analysed by an artificial neural network — a core building block of ControlExpert's AI claims engine.</p><div class="proj-meta"><strong>DE102019129826A1</strong> · Priority 2019-11-05 · ControlExpert GmbH</div></div>
-
-      <div class="proj-card"><span class="proj-type type-patent">📜 Patent · DE</span><h3>Plausibility of a Vehicle Repair Plan</h3><p>Method for checking a vehicle repair plan for technical plausibility — detecting the composition associated with vehicle damage and evaluating which parts require repair or replacement, enabling AI-assisted repair validation.</p><div class="proj-meta"><strong>DE102020105545A1</strong> · Priority 2020-03-02 · ControlExpert GmbH</div></div>
-
-      <div class="proj-card"><span class="proj-type type-patent">📜 Patent · DE</span><h3>Method for Extracting a Vehicle Identification Number</h3><p>AI-based method for extracting a VIN containing letters and/or digits from an image file of a vehicle registration document or the vehicle itself — enabling automated vehicle identification in claims workflows.</p><div class="proj-meta"><strong>DE102019109941A1</strong> · Priority 2019-04-15 · ControlExpert GmbH</div></div>
-
-      <div class="proj-card"><span class="proj-type type-patent">📜 Patent · DE</span><h3>Process for the Simple Annotation of Complex Damage on Image Material</h3><p>Neural-network-based method for annotating complex damage structures on image material, simplifying the creation of high-quality training data for AI models in automated damage assessment pipelines.</p><div class="proj-meta"><strong>DE102019129968A1</strong> · Priority 2019-11-06 · ControlExpert GmbH</div></div>
-
-      <div class="proj-card"><span class="proj-type type-pub">📄 Publication</span><h3>Uncertainty Estimates for Semantic Segmentation in Motor Claims</h3><p>Explores meta-classification models to assess precision of semantic segmentation outputs for car body parts in adverse conditions. Achieves AUROC of 0.915, improves mean IoU by 16 pp, and reduces wrongly predicted segments by 77%.</p><div class="proj-meta"><strong>Machine Vision and Applications · Springer</strong> · May 2024</div></div>
-
-      <div class="proj-card"><span class="proj-type type-pub">📄 Publication</span><h3>ResBuilder: Automated Learning of Depth with Residual Structures</h3><p>Neural architecture search algorithm building ResNet architectures from scratch at near state-of-the-art performance with reduced computational cost. Generalises from CIFAR10 to industrial fraud detection datasets.</p><div class="proj-meta"><strong>ICANN 2024 · Springer</strong> · September 2024</div></div>
-
-      <div class="proj-card"><span class="proj-type type-pub">📄 Publication</span><h3>Identifying Label Errors in Object Detection Datasets by Loss Inspection</h3><p>Method for detecting label errors in object detection training datasets via loss inspection, improving model reliability in production AI systems. Part of the BMFTR RELiABEL project on reliable AI through reliable labels.</p><div class="proj-meta"><strong>Conference Paper</strong> · January 2024</div></div>
-
-      <div class="proj-card"><span class="proj-type type-product">🔬 Research Collaboration</span><h3>OpenGPT-X Industry Partner</h3><p>ControlExpert as an industry partner in the publicly funded OpenGPT-X project, exploring Generative AI and large language models for the insurance industry. Presented findings on GenAI in motor claims at the openGPT-X &amp; appliedAI Conference 2023.</p><div class="proj-meta"><strong>OpenGPT-X / appliedAI</strong> · 2022–2024</div></div>
-
-      <div class="proj-card"><span class="proj-type type-award">🥇 Industry Award</span><h3>KI Innovation Award — F.A.Z. Institut</h3><p>Winner of the KI Innovation Award presented by the F.A.Z. Institut, one of Germany's most prestigious recognitions for outstanding innovation in Artificial Intelligence — awarded for pioneering AI work in insurance and claims management.</p><div class="proj-meta"><strong>Issued by F.A.Z. Institut</strong> · Frankfurt am Main, Germany</div></div>
-
-      <div class="proj-card"><span class="proj-type type-award">🏆 Award</span><h3>3rd Place — Talanx Hackathon</h3><p>Awarded 3rd place at the Talanx Insurance Hackathon (hackitover.com), demonstrating applied AI innovation in the insurance domain.</p><div class="proj-meta"><strong>Issued by Talanx</strong> · April 2018</div></div>
-
-      <div class="proj-card"><span class="proj-type type-award">🏅 Academic Award</span><h3>Springorum Denkmünze</h3><p>Prestigious academic medal awarded by the Förderverein der RWTH Aachen for outstanding academic achievement during studies at RWTH Aachen University.</p><div class="proj-meta"><strong>Förderverein der RWTH Aachen</strong> · July 2013</div></div>
-
-      <div class="proj-card"><span class="proj-type type-product">🌐 Advisory</span><h3>Advisory Board — Connect &amp; Collect (CoCo)</h3><p>Board member of the CoCo project — an AI-powered cloud for interdisciplinary networked research and innovation for the future of work. Contributing strategic guidance on AI architecture and applied research.</p><div class="proj-meta"><strong>coco-projekt.de</strong> · March 2022–Present</div></div>
+    <div class="impact-stats">
+      <div class="impact-stat"><div class="impact-stat-num">3</div><div class="impact-stat-lbl">Awards &amp; Honours</div></div>
+      <div class="impact-stat"><div class="impact-stat-num">10</div><div class="impact-stat-lbl">AI Products in Production</div></div>
+      <div class="impact-stat"><div class="impact-stat-num">7</div><div class="impact-stat-lbl">Patents Filed / Issued</div></div>
+      <div class="impact-stat"><div class="impact-stat-num">173+</div><div class="impact-stat-lbl">Publications · 22,943+ Citations</div></div>
     </div>
-    <p style="margin-top:2rem;color:var(--muted);font-size:.85rem;text-align:center;font-style:italic">* This is a selected extract of projects, publications, and awards.</p>
-    <p style="margin-top:.6rem;color:var(--muted);font-size:.85rem;text-align:center">173 total publications · 22,943+ citations · <a href="https://www.researchgate.net/profile/Sebastian-Schoenen" target="_blank" style="color:var(--acc3);text-decoration:none">View full publication list →</a></p>
+
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="showTab('products',this)">Products <span class="tab-count">10</span></button>
+      <button class="tab-btn" onclick="showTab('patents',this)">Patents <span class="tab-count">7</span></button>
+      <button class="tab-btn" onclick="showTab('research',this)">Research <span class="tab-count">7</span></button>
+      <button class="tab-btn" onclick="showTab('publications',this)">Publications <span class="tab-count">173+</span></button>
+      <button class="tab-btn" onclick="showTab('awards',this)">Awards <span class="tab-count">3</span></button>
+    </div>
+
+    <!-- AWARDS -->
+    <div class="proj-group" id="tab-awards">
+      <div class="awards-grid">
+        <div class="award-card"><div class="award-rank">Industry Award</div><h3>KI Innovation Award — F.A.Z. Institut</h3><p>One of Germany's most prestigious recognitions for outstanding AI innovation — awarded for pioneering work in AI-driven insurance and claims management.</p><div class="award-meta"><strong>F.A.Z. Institut</strong> · Frankfurt am Main</div></div>
+        <div class="award-card"><div class="award-rank">Hackathon · 3rd Place</div><h3>Talanx Insurance Hackathon</h3><p>Awarded 3rd place at the Talanx Insurance Hackathon (hackitover.com), demonstrating applied AI innovation in the insurance domain.</p><div class="award-meta"><strong>Talanx</strong> · April 2018</div></div>
+        <div class="award-card"><div class="award-rank">Academic Honour</div><h3>Springorum Denkmünze</h3><p>Prestigious academic medal awarded by the Förderverein der RWTH Aachen for outstanding academic achievement during studies.</p><div class="award-meta"><strong>Förderverein der RWTH Aachen</strong> · July 2013</div></div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="proj-group visible" id="tab-products">
+      <div class="proj-grid">
+        <div class="card-base prod-card">          <span class="pill pill-flagship">Flagship Product</span><h3>Claims Pilot — Agentic AI End-to-End Claims</h3><p>Production-grade multi-agent AI system orchestrating the full motor claims journey from FNOL to resolution. Processes multimodal inputs — voice, text, images, sensor data — delivering reduced loss adjustment expense, faster cycle times, and improved customer satisfaction.</p>          <div class="card-meta"><strong>Solvd Group / ControlExpert</strong></div></div>
+        <div class="card-base prod-card"><span class="pill pill-ai">AI Product</span><h3>Claims Advisor</h3><p>AI-driven real-time next-best-action system embedded in the FNOL process. Analyses submitted damage photos and claim context to instantly recommend the optimal handling path — repair, replacement, or total loss.</p><div class="card-meta"><strong>ControlExpert GmbH</strong></div></div>
+        <div class="card-base prod-card"><span class="pill pill-ai">AI Product</span><h3>AI Damage Assessment — Image &amp; Telematics</h3><p>Combines deep learning on damage images with telematics sensor data. Enables automated severity scoring, part-level repair/replace decisions, and cost estimation — forming the backbone of touchless claims processing.</p><div class="card-meta"><strong>ControlExpert GmbH</strong></div></div>
+        <div class="card-base prod-card"><span class="pill pill-ai">AI Product</span><h3>AI Cost Assessment</h3><p>ML model for automated repair cost estimation based on damage assessment outputs. Delivers accurate, data-driven cost benchmarks at scale, reducing manual review effort and improving cost containment.</p><div class="card-meta"><strong>ControlExpert GmbH</strong></div></div>
+        <div class="card-base prod-card"><span class="pill pill-ai">AI Product</span><h3>Image Fraud Prevention</h3><p>AI-powered image analysis detecting manipulated or reused damage photos in the claims process. Identifies fraud patterns invisible to human reviewers, significantly reducing fraudulent payouts across high-volume portfolios.</p><div class="card-meta"><strong>ControlExpert GmbH</strong></div></div>
+        <div class="card-base prod-card"><span class="pill pill-ai">AI Product</span><h3>FraudGuard AI</h3><p>Hybrid fraud detection combining rule-based logic with a custom AI model to identify suspicious claims patterns. Deployed across document and image checks, providing insurers with a layered defence against evolving fraud scenarios.</p><div class="card-meta"><strong>ControlExpert GmbH</strong></div></div>
+        <div class="card-base prod-card"><span class="pill pill-ai">AI Product</span><h3>KI InvoiceCheck</h3><p>Automated invoice auditing for motor claims. Validates repair invoices against damage assessments, labour rates, and parts pricing — detecting overbilling and inconsistencies at scale with minimal manual intervention.</p><div class="card-meta"><strong>ControlExpert GmbH</strong></div></div>
+        <div class="card-base prod-card"><span class="pill pill-ai">AI Product</span><h3>Intelligent Document Processing</h3><p>End-to-end AI pipeline extracting, classifying, and structuring information from unstructured claims documents — repair invoices, police reports, medical certificates — feeding downstream automation and decisioning systems.</p><div class="card-meta"><strong>ControlExpert GmbH</strong></div></div>
+        <div class="card-base prod-card"><span class="pill pill-ai">AI Product</span><h3>Voicebot for FNOL</h3><p>Conversational AI voicebot enabling fully automated first notification of loss via natural language. Guides claimants through damage reporting, capturing structured data and triggering claims workflows without human involvement.</p><div class="card-meta"><strong>ControlExpert GmbH</strong></div></div>
+        <div class="card-base prod-card">          <span class="pill pill-ai">AI Product</span><h3>GenAI-based Liability &amp; Coverage Check</h3><p>Generative AI automating the analysis of policy documents, accident reports, and claim facts to determine liability and coverage applicability. Reduces manual legal review effort and accelerates decisioning for complex cases.</p><div class="card-meta"><strong>ControlExpert GmbH / Solvd Group</strong></div></div>
+      </div>
+    </div>
+
+    <!-- PATENTS -->
+    <div class="proj-group" id="tab-patents">
+      <div class="proj-grid">
+        <div class="card-base patent-card"><span class="pill pill-patent">US · EP · JP · DE</span><h3>Method for Assessing Damage to a Motor Vehicle</h3><p>AI-based method for evaluating vehicle damage from image files — determining damage presence, severity, and extent across vehicle zones and deciding whether parts require repair or replacement.</p><div class="patent-num">US11397972B2 · EP3736758A1 · Priority 2019-03-05 · Granted 2022-07-26</div></div>
+        <div class="card-base patent-card"><span class="pill pill-patent">DE</span><h3>Automatic Detection of Vehicle Damage in an Accident</h3><p>Sensor-based detection using continuous acquisition of acceleration, speed, and yaw rate values while driving to automatically identify vehicle damage in accident scenarios.</p><div class="patent-num">DE102019105535A1 · Priority 2019-03-05</div></div>
+        <div class="card-base patent-card"><span class="pill pill-patent">DE</span><h3>Automatic Detection of Damage Events from Image Material</h3><p>Method, computer program, and system for detecting damage events via a neural network that generates multiple weighted bounding boxes, constructs a 2D density function from them, and uses it to localise and classify damage — overcoming the limitations of traditional non-maximum suppression approaches.</p><div class="patent-num">DE102019129826A1 · DE102019129826B4 · Priority 2019-11-05 · Granted 2025-01-23</div></div>
+        <div class="card-base patent-card"><span class="pill pill-patent">DE</span><h3>Plausibility of a Vehicle Repair Plan</h3><p>Method for checking a vehicle repair plan for technical plausibility, evaluating which parts require repair or replacement — enabling AI-assisted repair validation at scale.</p><div class="patent-num">DE102020105545A1 · Priority 2020-03-02</div></div>
+        <div class="card-base patent-card"><span class="pill pill-patent">DE</span><h3>Method for Extracting a Vehicle Identification Number</h3><p>AI-based method for extracting a VIN from an image file of a vehicle registration document or the vehicle itself — enabling automated vehicle identification in claims workflows.</p><div class="patent-num">DE102019109941A1 · Priority 2019-04-15</div></div>
+        <div class="card-base patent-card"><span class="pill pill-patent">DE</span><h3>Process for Simple Annotation of Complex Damage on Image Material</h3><p>Neural-network-based method for annotating complex damage on image material, simplifying the creation of high-quality training data for AI damage assessment models.</p><div class="patent-num">DE102019129968A1 · Priority 2019-11-06</div></div>
+      </div>
+    </div>
+
+    <!-- RESEARCH -->
+    <div class="proj-group" id="tab-research">
+      <div class="proj-grid">
+        <div class="card-base research-card"><span class="pill pill-research">Industry Partner</span><h3>OpenGPT-X</h3><p>ControlExpert as an industry partner in the publicly funded OpenGPT-X project, exploring Generative AI and large language models for the insurance industry. Presented findings at the openGPT-X &amp; appliedAI Conference 2023.</p><div class="card-meta"><strong>Federal Ministry / Fraunhofer IAIS</strong> · 2022–2024</div></div>
+        <div class="card-base research-card"><span class="pill pill-research">EFRE / NRW</span><h3>BIT — Bergische Innovationsplattform für KI</h3><p>EU- and NRW-funded AI transfer platform anchored at Bergische Universität Wuppertal. ControlExpert contributed applied R&amp;D bridging academic AI research with automotive and insurance use cases in the Bergisches Städtedreieck region.</p><div class="card-meta"><strong>Bergische Universität Wuppertal / EFRE NRW</strong></div></div>
+        <div class="card-base research-card"><span class="pill pill-research">BMBF</span><h3>HUMAINE — Human-Centered AI Competence Center</h3><p>Federal Ministry-funded competence center for the Metropole Ruhr, developing methods at the interface of AI development, validation, and human-centered work organization in industrial and SME contexts.</p>          <div class="card-meta"><strong>BMBF / PTKA</strong> · Funding code 02L19C200</div></div>
+        <div class="card-base research-card"><span class="pill pill-research">NRW</span><h3>IT'S DIGITIVE — Secure Digital Order Processing for 3D Printing</h3><p>NRW-funded project developing a new spare parts supply ecosystem for the automotive industry, enabling secure digital order processing for productive use of 3D printing in value chains.</p><div class="card-meta"><strong>Land Nordrhein-Westfalen</strong></div></div>
+        <div class="card-base research-card"><span class="pill pill-research">Funded Research</span><h3>FedXtract</h3><p>Research project exploring federated learning and privacy-preserving AI methods for extracting insights across distributed data sources — with direct relevance to cross-insurer claims intelligence and secure data collaboration.</p><div class="card-meta"><strong>ControlExpert GmbH</strong></div></div>
+        <div class="card-base research-card"><span class="pill pill-research">EFRE / NRW</span><h3>Just Scan It 3D</h3><p>EU EFRE and NRW-funded collaboration developing an AI workflow converting smartphone captures into precise 3D mesh models and Gaussian Splats for virtual damage assessment and AR-based claims inspection.</p>          <div class="card-meta"><strong>EFRE / NRW Ministry</strong> · Started Summer 2024</div></div>
+        <div class="card-base research-card"><span class="pill pill-research">Funded Research</span><h3>PocketViz</h3><p>Research project developing portable AI-based visualization solutions — advancing mobile-first damage documentation and accessible AI-powered assessment capabilities in the claims handling process.</p><div class="card-meta"><strong>ControlExpert GmbH</strong></div></div>
+      </div>
+    </div>
+
+    <!-- PUBLICATIONS -->
+    <div class="proj-group" id="tab-publications">
+      <div class="proj-grid">
+        <div class="card-base pub-card"><span class="pill pill-pub">Springer · May 2024</span><h3>Uncertainty Estimates for Semantic Segmentation in Motor Claims</h3><p>Meta-classification models assessing precision of semantic segmentation for car body parts. Achieves AUROC of 0.915, improves mean IoU by 16 pp, and reduces wrongly predicted segments by 77%.</p><div class="card-meta"><strong>Machine Vision and Applications</strong></div></div>
+        <div class="card-base pub-card"><span class="pill pill-pub">ICANN · Sept 2024</span><h3>ResBuilder: Automated Learning of Depth with Residual Structures</h3><p>Neural architecture search algorithm building ResNet architectures from scratch at near state-of-the-art performance with reduced computational cost. Generalises to industrial fraud detection datasets.</p><div class="card-meta"><strong>Springer ICANN 2024</strong></div></div>
+        <div class="card-base pub-card"><span class="pill pill-pub">Conference · Jan 2024</span><h3>Identifying Label Errors in Object Detection Datasets by Loss Inspection</h3><p>Method for detecting label errors in object detection training data via loss inspection — part of the BMFTR RELiABEL project on reliable AI through reliable labels.</p><div class="card-meta"><strong>Co-authored with Rottmann et al.</strong></div></div>
+      </div>
+      <p class="more-note">173 total publications · 22,943+ citations · <a href="https://www.researchgate.net/profile/Sebastian-Schoenen" target="_blank">Full list on ResearchGate →</a></p>
+    </div>
+
   </div>
 </section>
 
+<!-- VOLUNTEER -->
 <section id="volunteer">
   <div class="container">
     <div class="sec-label">Community &amp; Volunteering</div>
@@ -320,6 +495,7 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="contact-wrap">
@@ -337,5 +513,26 @@
 
 <footer>© 2026 Dr. Sebastian Schoenen · Director of Innovation &amp; Technology · Head of Data &amp; AI CoE · Solvd Group / ControlExpert GmbH</footer>
 
+<script>
+  // Tab switching
+  function showTab(id, btn) {
+    document.querySelectorAll('.proj-group').forEach(g => g.classList.remove('visible'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('visible');
+    btn.classList.add('active');
+  }
+
+  // Mobile nav
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() {
+    var open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+  });
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+  }
+</script>
 </body>
 </html>

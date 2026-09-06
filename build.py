@@ -2,14 +2,15 @@
 """Generates index.html (EN) and de/index.html (DE) plus sitemap.xml/robots.txt
 from a single content source. Run: python3 build.py
 """
-import json, html as H
+import json, html as H, datetime
 from pathlib import Path
 
 SITE = "https://sebastianschoenen.github.io/"
 PHOTO = "SebastianSchoenen.jpg"
 LINKEDIN = "https://www.linkedin.com/in/dr-sebastian-schoenen-b24898153/"
 RESEARCHGATE = "https://www.researchgate.net/profile/Sebastian-Schoenen"
-LASTMOD = "2026-09-06"
+LASTMOD = datetime.date.today().isoformat()
+YEAR = str(datetime.date.today().year)
 
 exec(open(Path(__file__).parent / "content.py", encoding="utf-8").read())
 
@@ -17,6 +18,7 @@ ICONS = {
  "phd":'<path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>',
  "msc":'<path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/>',
  "work":'<path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>',
+ "net":'<path d="M12 2a5 5 0 015 5c0 1.6-.8 3-2 3.9V13h3a3 3 0 013 3v1h2v5h-6v-5h2v-1a1 1 0 00-1-1h-3v2h2v5H8v-5h2v-2H7a1 1 0 00-1 1v1h2v5H2v-5h2v-1a3 3 0 013-3h3v-2.1A5 5 0 017 7a5 5 0 015-5zm0 2a3 3 0 100 6 3 3 0 000-6z"/>',
  "pin":'<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>',
  "lang":'<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>',
  "li":'<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>',
@@ -54,7 +56,7 @@ def li(cls, items): return "".join(f'<li class="{cls}">{x}</li>' for x in items)
 
 def render(t):
     p = t["prefix"]
-    nav_links = "".join(f'<li><a href="{h}">{l}</a></li>' for h,l in t["nav"])
+    nav_links = "".join(f'<li><a href="{h}" data-section="{h[1:]}">{l}</a></li>' for h,l in t["nav"])
     mob_links = "".join(f'<a href="{h}">{l}</a>' for h,l in t["nav"])
     cur = ' aria-current="page"'
     en_href, de_href = ("./", "de/") if t["lang"]=="en" else ("../", "./")
@@ -63,25 +65,25 @@ def render(t):
     badges = li("badge", t["hero_badges"])
     stats = "".join(f'<li class="hero-stat"><div class="stat-num">{n}</div><div class="stat-lbl">{l}</div></li>' for n,l in t["hero_stats"])
     about_p = "".join(f"<p>{x}</p>" for x in t["about_p"])
-    about_cards = "".join(f'<div class="info-card"><div class="info-icon"><svg viewBox="0 0 24 24" aria-hidden="true">{ICONS[i]}</svg></div><div><h3>{h}</h3><p>{d}</p></div></div>' for i,h,d in t["about_cards"])
-    exp = "".join(f'<li class="t-item"><div class="t-dot" aria-hidden="true"></div><div class="t-period">{per}</div><h3 class="t-role">{H.escape(role)}</h3><div class="t-company">{H.escape(co)}</div><p class="t-desc">{desc}</p><ul class="t-tags">{li("t-tag",tags)}</ul></li>' for per,role,co,desc,tags in t["exp"])
-    skills = "".join(f'<div class="skill-cat"><h3>{h}</h3><ul class="skill-pills">{li("skill-pill",xs)}</ul></div>' for h,xs in t["skills"])
+    about_cards = "".join(f'<div class="info-card reveal"><div class="info-icon"><svg viewBox="0 0 24 24" aria-hidden="true">{ICONS[i]}</svg></div><div><h3>{h}</h3><p>{d}</p></div></div>' for i,h,d in t["about_cards"])
+    exp = "".join(f'<li class="t-item reveal"><div class="t-dot" aria-hidden="true"></div><div class="t-period">{per}</div><h3 class="t-role">{H.escape(role)}</h3><div class="t-company">{H.escape(co)}</div><p class="t-desc">{desc}</p><ul class="t-tags">{li("t-tag",tags)}</ul></li>' for per,role,co,desc,tags in t["exp"])
+    skills = "".join(f'<div class="skill-cat reveal"><h3>{h}</h3><ul class="skill-pills">{li("skill-pill",xs)}</ul></div>' for h,xs in t["skills"])
     impact = "".join(f'<li class="impact-stat"><div class="impact-stat-num">{n}</div><div class="impact-stat-lbl">{l}</div></li>' for n,l in t["impact"])
     tabs = "".join(f'<button class="tab-btn{" active" if i==0 else ""}" role="tab" id="tabbtn-{k}" aria-controls="tab-{k}" aria-selected="{"true" if i==0 else "false"}" data-tab="{k}">{l} <span class="tab-count">{c}</span></button>' for i,(k,l,c) in enumerate(t["tabs"]))
-    products = "".join(f'<li class="card-base prod-card"><span class="pill {"pill-flagship" if fl else "pill-ai"}">{t["flagship"] if fl else t["ai_product"]}</span><h3>{h}</h3><p>{d}</p><div class="card-meta"><strong>{m}</strong></div></li>' for h,d,m,fl in t["products"])
-    patents = "".join(f'<li class="card-base patent-card"><span class="pill pill-patent">{j}</span><h3>{h}</h3><p>{d}</p><div class="patent-num">{n}</div></li>' for j,h,d,n in t["patents"])
-    research = "".join(f'<li class="card-base research-card"><div class="pill-row"><span class="pill pill-research">{f}</span>{status_pill(t,s)}</div><h3>{h}</h3><p>{d}</p><div class="card-meta"><strong>{m}</strong>{(" · "+per) if per else ""}</div></li>' for f,h,d,m,per,s in t["research"])
+    products = "".join(f'<li class="card-base reveal prod-card"><span class="pill {"pill-flagship" if fl else "pill-ai"}">{t["flagship"] if fl else t["ai_product"]}</span><h3>{h}</h3><p>{d}</p><div class="card-meta"><strong>{m}</strong></div></li>' for h,d,m,fl in t["products"])
+    patents = "".join(f'<li class="card-base reveal patent-card"><span class="pill pill-patent">{j}</span><h3>{h}</h3><p>{d}</p><div class="patent-num">{n}</div></li>' for j,h,d,n in t["patents"])
+    research = "".join(f'<li class="card-base reveal research-card"><div class="pill-row"><span class="pill pill-research">{f}</span>{status_pill(t,s)}</div><h3>{h}</h3><p>{d}</p><div class="card-meta"><strong>{m}</strong>{(" · "+per) if per else ""}</div></li>' for f,h,d,m,per,s in t["research"])
     pubs = ""
     for gh, items in t["pub_groups"]:
-        cards = "".join(f'<li class="card-base pub-card"><span class="pill pill-pub">{j}</span><h4>{h}</h4><p>{d}</p><div class="card-meta"><strong>{m}</strong></div></li>' for j,h,d,m in items)
+        cards = "".join(f'<li class="card-base reveal pub-card"><span class="pill pill-pub">{j}</span><h4>{h}</h4><p>{d}</p><div class="card-meta"><strong>{m}</strong></div></li>' for j,h,d,m in items)
         pubs += f'<div class="pub-group"><h3 class="group-title">{gh}</h3><ul class="proj-grid">{cards}</ul></div>'
-    awards = "".join(f'<li class="award-card"><div class="award-rank">{r}</div><h3>{h}</h3><p>{d}</p><div class="award-meta"><strong>{m}</strong></div></li>' for r,h,d,m in t["awards"])
+    awards = "".join(f'<li class="award-card reveal"><div class="award-rank">{r}</div><h3>{h}</h3><p>{d}</p><div class="award-meta"><strong>{m}</strong></div></li>' for r,h,d,m in t["awards"])
     talks = ""
     for date,place,title,event,desc,link,s in t["talks"]:
         ttl = f'<a href="{link}" target="_blank" rel="noopener">{title}</a>' if link else title
-        talks += f'<li class="talk"><div class="talk-date">{date}<small>{place}</small></div><div class="talk-body"><h3>{ttl}</h3><div class="talk-event">{event}</div><p>{desc}</p>{status_pill(t,s)}</div></li>'
+        talks += f'<li class="talk reveal"><div class="talk-date">{date}<small>{place}</small></div><div class="talk-body"><h3>{ttl}</h3><div class="talk-event">{event}</div><p>{desc}</p>{status_pill(t,s)}</div></li>'
     talks_more = "".join(f'<li class="talk-row"><span class="talk-row-date">{d}</span><span class="talk-row-body"><span class="talk-row-title">{h}</span><span class="talk-row-event">{e}</span><span class="talk-row-note">{n}</span></span></li>' for d,h,e,n in t["talks_more"])
-    vol = "".join(f'<li class="vol-card"><h3>{h}</h3><div class="role">{r}</div><p>{d}</p><div class="vol-period">{per}</div></li>' for h,r,d,per in t["vol"])
+    vol = "".join(f'<li class="vol-card reveal"><h3>{h}</h3><div class="role">{r}</div><p>{d}</p><div class="vol-period">{per}</div></li>' for h,r,d,per in t["vol"])
     groups = [("products",products,"proj-grid"),("patents",patents,"proj-grid"),("research",research,"proj-grid"),("publications",pubs,None),("awards",awards,"awards-grid")]
     panels = ""
     for i,(k,body,cls) in enumerate(groups):
@@ -198,7 +200,6 @@ def render(t):
     <div class="sec-label">{t["proj_label"]}</div>
     <h2 class="sec-title">{t["proj_title"]}</h2>
     <div class="sec-line" aria-hidden="true"></div>
-    <ul class="impact-stats">{impact}</ul>
     <div class="tab-bar" role="tablist">{tabs}</div>
     {panels}
   </div>
@@ -242,7 +243,7 @@ def render(t):
 </main>
 
 <footer>
-  <div>{t["footer"]}</div>
+  <div>{t["footer"].replace("© 2026", "© " + YEAR)}</div>
 </footer>
 
 <script src="{p}main.js" defer></script>

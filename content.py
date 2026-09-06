@@ -12,7 +12,7 @@ T = {
   hero_quote="If you don't execute your ideas, they die.",
   hero_badges=["Agentic AI","Computer Vision","Generative AI","InsurTech","Physics PhD"],
   btn_pri="Projects & research", btn_sec="Get in touch",
-  hero_stats=[("173+","Publications"),("22.9k","Citations"),("6","Patents"),("8+","Years of AI for claims")],
+  hero_stats=[("173+","Publications"),("25.5k","Citations"),("6","Patents"),("8+","Years of AI for claims")],
   photo_alt="Portrait of Dr. Sebastian Schoenen",
   about_label="About", about_title="Technology leader. <span>AI practitioner.</span>",
   about_p=[
@@ -66,7 +66,7 @@ T = {
     ("Leadership &amp; research",["R&amp;D management","Innovation strategy","Academic publishing","Data analytics","Mathematics","Astroparticle physics","Patent development","Team leadership"]),
   ],
   proj_label="Portfolio", proj_title="Impact &amp; <span>innovation</span>",
-  impact=[("10","AI products"),("6","Patents filed / granted"),("10","Funded research projects"),("173+","Publications · 22.9k citations")],
+  impact=[("10","AI products"),("6","Patents filed / granted"),("10","Funded research projects"),("173+","Publications · 25.5k citations")],
   tabs=[("products","Products","10"),("patents","Patents","6"),("research","Research","10"),("publications","Publications","173+"),("awards","Awards","5")],
   flagship="Flagship product", ai_product="AI product",
   products=[
@@ -137,10 +137,13 @@ T = {
    ("Physics – IceCube Neutrino Observatory",[
     ("Dissertation · Jul 2017","Discovery and characterization of a diffuse astrophysical muon neutrino flux with the IceCube Neutrino Observatory","Doctoral thesis, RWTH Aachen University, III. Physikalisches Institut B.","<a href=\"https://publications.rwth-aachen.de/record/696221\" target=\"_blank\" rel=\"noopener\">publications.rwth-aachen.de</a>"),
     ("Astrophysical Journal · Dec 2016","Observation and characterization of a cosmic muon neutrino flux from the Northern Hemisphere using six years of IceCube data","Excludes a purely atmospheric origin of the highest-energy muon neutrino events at 5.6σ and characterises the astrophysical flux with a hard spectral index of 2.13 ± 0.13; the highest-energy event has a reconstructed muon energy of 4.5 PeV.","The Astrophysical Journal, Vol. 833, No. 1 · IceCube Collaboration"),
+    ("Science · Jul 2018","Multimessenger observations of a flaring blazar coincident with high-energy neutrino IceCube-170922A","First identification of a likely source of high-energy cosmic neutrinos: the IceCube event of 22 September 2017 coincided with a gamma-ray flare of the blazar TXS 0506+056, observed by 18 telescopes across the electromagnetic spectrum.","Science, Vol. 361, eaat1378 · IceCube, Fermi-LAT, MAGIC et al."),
+    ("Nature · Nov 2017","Measurement of the multi-TeV neutrino interaction cross-section with IceCube using Earth absorption","First measurement of the neutrino–nucleon cross-section at energies of 6.3–980 TeV, far beyond accelerator reach, using the Earth itself as the target and the absorption of upgoing neutrinos as the observable.","Nature 551, 596–600 · IceCube Collaboration"),
+    ("Nature Physics · Sep 2018","Neutrino interferometry for high-precision tests of Lorentz symmetry with IceCube","Atmospheric neutrinos travelling through the Earth act as an interferometer for spacetime symmetry. The analysis sets some of the most stringent limits on Lorentz violation in the neutrino sector to date.","Nature Physics 14, 961–966 · IceCube Collaboration"),
     ("Eur. Phys. J. C · Jul 2014","Search for non-relativistic magnetic monopoles with IceCube","Search for GUT-era magnetic monopoles via nucleon-decay catalysis. No signal observed; flux limits improved by one to two orders of magnitude, three orders below the Parker bound.","Eur. Phys. J. C 74:2938 · IceCube Collaboration"),
    ]),
   ],
-  pub_note=f'Selection. 173 publications and 22,943 citations in total, most of them as author within the IceCube Collaboration · <a href="{RESEARCHGATE}" target="_blank" rel="noopener">Full list on ResearchGate</a>',
+  pub_note=f'Selection. 173 publications and 25,504 citations in total, most of them as author within the IceCube Collaboration · <a href="{RESEARCHGATE}" target="_blank" rel="noopener">Full list on ResearchGate</a>',
   awards=[
     ("Industry award · 2026","AI Communication Award 2026 – Winner","ClaimsPilot won the category “AI Strategy, Analytics &amp; Agents in Communication”. The independent jury from academia and industry recognised the agentic platform for orchestrating the motor claims journey from first notification to settlement. I accepted the award on behalf of the team.","AI Communication Award / ZIEHL-ABEGG SE · July 2026"),
     ("Industry award · 2024","KI Innovation Award 2024 – Heavyweight category","Awarded by F.A.Z. Institut and KI Bundesverband at the “Innovative Leaders” conference for ControlExpert's AI-driven claims and repair management process.","F.A.Z. Institut · KI Bundesverband · July 2024"),
@@ -190,7 +193,7 @@ T = {
   hero_quote="Ideen, die man nicht umsetzt, sterben.",
   hero_badges=["Agentische KI","Computer Vision","Generative KI","InsurTech","Promovierter Physiker"],
   btn_pri="Projekte & Forschung", btn_sec="Kontakt aufnehmen",
-  hero_stats=[("173+","Publikationen"),("22.9k","Zitationen"),("6","Patente"),("8+","Jahre KI für Schäden")],
+  hero_stats=[("173+","Publikationen"),("25.5k","Zitationen"),("6","Patente"),("8+","Jahre KI für Schäden")],
   photo_alt="Porträt von Dr. Sebastian Schoenen",
   about_label="Über mich", about_title="Technologieführung. <span>KI in der Praxis.</span>",
   about_p=[
@@ -244,7 +247,7 @@ T = {
     ("Führung &amp; Forschung",["F&amp;E-Management","Innovationsstrategie","Wissenschaftliches Publizieren","Datenanalyse","Mathematik","Astroteilchenphysik","Patententwicklung","Teamführung"]),
   ],
   proj_label="Portfolio", proj_title="Wirkung &amp; <span>Innovation</span>",
-  impact=[("10","KI-Produkte"),("6","Patente angemeldet / erteilt"),("10","Geförderte Forschungsprojekte"),("173+","Publikationen · 22.9k Zitationen")],
+  impact=[("10","KI-Produkte"),("6","Patente angemeldet / erteilt"),("10","Geförderte Forschungsprojekte"),("173+","Publikationen · 25.5k Zitationen")],
   tabs=[("products","Produkte","10"),("patents","Patente","6"),("research","Forschung","10"),("publications","Publikationen","173+"),("awards","Auszeichnungen","5")],
   flagship="Flaggschiff-Produkt", ai_product="KI-Produkt",
   products=[
@@ -315,10 +318,13 @@ T = {
    ("Physik – IceCube Neutrino Observatory",[
     ("Dissertation · Juli 2017","Discovery and characterization of a diffuse astrophysical muon neutrino flux with the IceCube Neutrino Observatory","Dissertation, RWTH Aachen, III. Physikalisches Institut B.","<a href=\"https://publications.rwth-aachen.de/record/696221\" target=\"_blank\" rel=\"noopener\">publications.rwth-aachen.de</a>"),
     ("Astrophysical Journal · Dez. 2016","Observation and characterization of a cosmic muon neutrino flux from the Northern Hemisphere using six years of IceCube data","Schließt einen rein atmosphärischen Ursprung der höchstenergetischen Myon-Neutrino-Ereignisse mit 5,6σ aus und charakterisiert den astrophysikalischen Fluss mit hartem Spektralindex 2,13 ± 0,13; das höchstenergetische Ereignis hat eine rekonstruierte Myonenergie von 4,5 PeV.","The Astrophysical Journal, Vol. 833, No. 1 · IceCube Collaboration"),
+    ("Science · Juli 2018","Multimessenger observations of a flaring blazar coincident with high-energy neutrino IceCube-170922A","Erste Identifikation einer wahrscheinlichen Quelle hochenergetischer kosmischer Neutrinos: Das IceCube-Ereignis vom 22. September 2017 fiel mit einem Gammastrahlen-Ausbruch des Blazars TXS 0506+056 zusammen, beobachtet von 18 Teleskopen über das gesamte elektromagnetische Spektrum.","Science, Vol. 361, eaat1378 · IceCube, Fermi-LAT, MAGIC u. a."),
+    ("Nature · Nov. 2017","Measurement of the multi-TeV neutrino interaction cross-section with IceCube using Earth absorption","Erste Messung des Neutrino-Nukleon-Wirkungsquerschnitts bei Energien von 6,3 bis 980 TeV, weit jenseits der Reichweite von Beschleunigern, mit der Erde selbst als Target und der Absorption aufwärts laufender Neutrinos als Observable.","Nature 551, 596–600 · IceCube Collaboration"),
+    ("Nature Physics · Sept. 2018","Neutrino interferometry for high-precision tests of Lorentz symmetry with IceCube","Atmosphärische Neutrinos auf ihrem Weg durch die Erde wirken als Interferometer für die Raumzeit-Symmetrie. Die Analyse setzt einige der bis dahin schärfsten Grenzen für Lorentz-Verletzung im Neutrinosektor.","Nature Physics 14, 961–966 · IceCube Collaboration"),
     ("Eur. Phys. J. C · Juli 2014","Search for non-relativistic magnetic monopoles with IceCube","Suche nach magnetischen Monopolen aus der GUT-Ära über katalysierten Nukleonzerfall. Kein Signal; Flussgrenzen um ein bis zwei Größenordnungen verbessert, drei Größenordnungen unter der Parker-Grenze.","Eur. Phys. J. C 74:2938 · IceCube Collaboration"),
    ]),
   ],
-  pub_note=f'Auswahl. Insgesamt 173 Publikationen und 22.943 Zitationen, die meisten als Autor innerhalb der IceCube Collaboration · <a href="{RESEARCHGATE}" target="_blank" rel="noopener">Vollständige Liste auf ResearchGate</a>',
+  pub_note=f'Auswahl. Insgesamt 173 Publikationen und 25.504 Zitationen, die meisten als Autor innerhalb der IceCube Collaboration · <a href="{RESEARCHGATE}" target="_blank" rel="noopener">Vollständige Liste auf ResearchGate</a>',
   awards=[
     ("Branchenpreis · 2026","AI Communication Award 2026 – Gewinner","ClaimsPilot gewann die Kategorie „KI-Strategie, Analytics &amp; Agenten in der Kommunikation“. Die unabhängige Jury aus Wissenschaft und Wirtschaft würdigte die agentische Plattform, die den Kfz-Schadenprozess von der Erstmeldung bis zur Auszahlung orchestriert. Ich habe den Preis stellvertretend für das Team entgegengenommen.","AI Communication Award / ZIEHL-ABEGG SE · Juli 2026"),
     ("Branchenpreis · 2024","KI Innovation Award 2024 – Kategorie Heavyweight","Verliehen von F.A.Z. Institut und KI Bundesverband auf der Konferenz „Innovative Leaders“ für den KI-gestützten Schaden- und Reparaturmanagementprozess von ControlExpert.","F.A.Z. Institut · KI Bundesverband · Juli 2024"),

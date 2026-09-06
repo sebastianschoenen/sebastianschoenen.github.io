@@ -98,6 +98,7 @@ def render(t):
 <title>{t["title"]}</title>
 <meta name="description" content="{H.escape(t["description"])}">
 <meta name="author" content="Dr. Sebastian Schoenen">
+<meta name="google-site-verification" content="PhaROYmn4Sk4O86H737ElXS9R5Nn_UCqVJHR-7QiGtM">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#0a0a0f">
 <link rel="canonical" href="{t["url"]}">

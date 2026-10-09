@@ -71,7 +71,11 @@ def render(t):
     skills = "".join(f'<div class="skill-cat reveal"><h3>{h}</h3><ul class="skill-pills">{li("skill-pill",xs)}</ul></div>' for h,xs in t["skills"])
     impact = "".join(f'<li class="impact-stat"><div class="impact-stat-num">{n}</div><div class="impact-stat-lbl">{l}</div></li>' for n,l in t["impact"])
     tabs = "".join(f'<button class="tab-btn{" active" if i==0 else ""}" role="tab" id="tabbtn-{k}" aria-controls="tab-{k}" aria-selected="{"true" if i==0 else "false"}" data-tab="{k}">{l} <span class="tab-count">{c}</span></button>' for i,(k,l,c) in enumerate(t["tabs"]))
-    products = "".join(f'<li class="card-base reveal prod-card"><span class="pill {"pill-flagship" if fl else "pill-ai"}">{t["flagship"] if fl else t["ai_product"]}</span><h3>{h}</h3><p>{d}</p><div class="card-meta"><strong>{m}</strong></div></li>' for h,d,m,fl in t["products"])
+    products = ""
+    for item in t["products"]:
+        h,d,m,fl = item[:4]
+        st = f'<span class="pill pill-upcoming">{t["in_dev"]}</span>' if len(item) > 4 and item[4] == "dev" else ""
+        products += f'<li class="card-base reveal prod-card"><div class="pill-row"><span class="pill {"pill-flagship" if fl else "pill-ai"}">{t["flagship"] if fl else t["ai_product"]}</span>{st}</div><h3>{h}</h3><p>{d}</p><div class="card-meta"><strong>{m}</strong></div></li>'
     patents = "".join(f'<li class="card-base reveal patent-card"><span class="pill pill-patent">{j}</span><h3>{h}</h3><p>{d}</p><div class="patent-num">{n}</div></li>' for j,h,d,n in t["patents"])
     research = "".join(f'<li class="card-base reveal research-card"><div class="pill-row"><span class="pill pill-research">{f}</span>{status_pill(t,s)}</div><h3>{h}</h3><p>{d}</p><div class="card-meta"><strong>{m}</strong>{(" · "+per) if per else ""}</div></li>' for f,h,d,m,per,s in t["research"])
     pubs = ""

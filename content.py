@@ -69,7 +69,7 @@ T = {
   ],
   proj_label="Portfolio", proj_title="Impact &amp; <span>innovation</span>",
   impact=[("10","AI products"),("6","Patents filed / granted"),("10","Funded research projects"),("173+","Publications · 25.5k citations")],
-  tabs=[("products","Products","11"),("patents","Patents","6"),("research","Research","10"),("publications","Publications","173+"),("awards","Awards","5")],
+  tabs=[("products","Products","11"),("patents","Patents","6"),("research","Research","11"),("publications","Publications","173+"),("awards","Awards","5")],
   flagship="Flagship product", ai_product="AI product",
   products=[
     ("ClaimsPilot – agentic AI for end-to-end motor claims",
@@ -96,8 +96,11 @@ T = {
     ("DE","Method for extracting a vehicle identification number","AI-based extraction of a VIN from an image of a vehicle registration document or the vehicle itself, enabling automated vehicle identification in claims workflows.","DE102019109941A1 · Priority 2019-04-15"),
     ("DE","Simple annotation of complex damage on image material","Neural-network-based method for annotating complex damage on images, simplifying the creation of training data for AI damage assessment.","DE102019129968A1 · Priority 2019-11-06"),
   ],
-  ongoing="Ongoing", completed="Completed", upcoming="Upcoming", in_dev="In development",
+  ongoing="Ongoing", completed="Completed", upcoming="Starts 2027", in_dev="In development",
   research=[
+    ("Horizon Europe · MSCA","ELEVATE – Exascale, Quantum Computing and Machine Learning for Innovation in Sciences",
+     "Joint doctoral network training twelve doctoral candidates in HPC, quantum computing and machine learning, with applications in particle physics, fluid dynamics and structural biology, alongside CERN, Forschungszentrum Jülich, CINECA, Bergische Universität Wuppertal, RWTH Aachen and others. ControlExpert is a partner organisation and hosts industrial secondments.",
+     '<a href="https://cordis.europa.eu/project/id/101311308" target="_blank" rel="noopener">Grant 101311308</a> · University of Cyprus (coord.) · €4.3M EU contribution',"2027–2032","upcoming"),
     ("BMFTR · ErUM-Data","ErUM-ARIA",
      "Efficient AI methods for physical simulations, developed jointly by RWTH Aachen University, FAU Erlangen-Nürnberg and ControlExpert. The partners bring simulation problems from astroparticle physics, particle physics, engineering and digital claims handling.",
      "BMFTR · RWTH Aachen · FAU Erlangen-Nürnberg","since 2026","ongoing"),
@@ -255,7 +258,7 @@ T = {
   ],
   proj_label="Portfolio", proj_title="Wirkung &amp; <span>Innovation</span>",
   impact=[("10","KI-Produkte"),("6","Patente angemeldet / erteilt"),("10","Geförderte Forschungsprojekte"),("173+","Publikationen · 25.5k Zitationen")],
-  tabs=[("products","Produkte","11"),("patents","Patente","6"),("research","Forschung","10"),("publications","Publikationen","173+"),("awards","Auszeichnungen","5")],
+  tabs=[("products","Produkte","11"),("patents","Patente","6"),("research","Forschung","11"),("publications","Publikationen","173+"),("awards","Auszeichnungen","5")],
   flagship="Flaggschiff-Produkt", ai_product="KI-Produkt",
   products=[
     ("ClaimsPilot – agentische KI für den End-to-End-Kfz-Schadenprozess",
@@ -282,8 +285,11 @@ T = {
     ("DE","Verfahren zum Auslesen einer Fahrzeug-Identifizierungsnummer","KI-basierte Extraktion der FIN aus dem Bild eines Fahrzeugscheins oder des Fahrzeugs selbst für die automatisierte Fahrzeugidentifikation im Schadenprozess.","DE102019109941A1 · Priorität 15.04.2019"),
     ("DE","Einfache Annotation komplexer Schäden auf Bildmaterial","Verfahren auf Basis neuronaler Netze zur Annotation komplexer Schäden auf Bildern, das die Erstellung von Trainingsdaten für KI-Schadenbewertung vereinfacht.","DE102019129968A1 · Priorität 06.11.2019"),
   ],
-  ongoing="Laufend", completed="Abgeschlossen", upcoming="Demnächst", in_dev="In Entwicklung",
+  ongoing="Laufend", completed="Abgeschlossen", upcoming="Start 2027", in_dev="In Entwicklung",
   research=[
+    ("Horizon Europe · MSCA","ELEVATE – Exascale, Quantum Computing and Machine Learning for Innovation in Sciences",
+     "Gemeinsames Doktorandennetzwerk, das zwölf Promovierende in HPC, Quantencomputing und maschinellem Lernen ausbildet, mit Anwendungen in Teilchenphysik, Strömungsmechanik und Strukturbiologie, zusammen mit CERN, Forschungszentrum Jülich, CINECA, Bergischer Universität Wuppertal, RWTH Aachen und weiteren. ControlExpert ist Partnerorganisation und nimmt Promovierende für Industrie-Secondments auf.",
+     '<a href="https://cordis.europa.eu/project/id/101311308" target="_blank" rel="noopener">Grant 101311308</a> · University of Cyprus (Koord.) · 4,3 Mio. € EU-Förderung',"2027–2032","upcoming"),
     ("BMFTR · ErUM-Data","ErUM-ARIA",
      "Effiziente KI-Methoden für physikalische Simulationen, gemeinsam entwickelt von RWTH Aachen, FAU Erlangen-Nürnberg und ControlExpert. Die Partner bringen Simulationsprobleme aus Astroteilchenphysik, Teilchenphysik, Ingenieurwissenschaften und digitaler Schadenabwicklung ein.",
      "BMFTR · RWTH Aachen · FAU Erlangen-Nürnberg","seit 2026","ongoing"),

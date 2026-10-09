@@ -38,6 +38,7 @@ def jsonld(t):
       "hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"degree","name":"Ph.D. in Physics","recognizedBy":{"@type":"CollegeOrUniversity","name":"RWTH Aachen University"}},
       "address":{"@type":"PostalAddress","addressRegion":"North Rhine-Westphalia","addressCountry":"DE"},
       "nationality":{"@type":"Country","name":"Germany"},
+      "memberOf":{"@type":"Organization","name":"IceCube Collaboration","url":"https://icecube.wisc.edu/"},
       "knowsLanguage":["de","en"],
       "knowsAbout":["Agentic AI","Generative AI","Computer Vision","Deep Learning","Machine Learning","Insurance Claims Management","Motor Insurance","Fraud Detection","Astroparticle Physics","AI Governance"],
       "award":["AI Communication Award 2026 – AI Strategy, Analytics & Agents in Communication (ClaimsPilot)","KI Innovation Award 2024 – F.A.Z. Institut & KI Bundesverband","Springorum Denkmünze – RWTH Aachen (2013)","DFG Research Training Group scholarship – RWTH Aachen (2013)","3rd place Talanx Insurance Hackathon (2018)"],
@@ -161,6 +162,19 @@ def render(t):
       <ul class="hero-badges">{badges}</ul>
       <div class="hero-btns"><a href="#projects" class="btn-pri">{t["btn_pri"]}</a><a href="#contact" class="btn-sec">{t["btn_sec"]}</a></div>
       <ul class="hero-stats">{stats}</ul>
+    </div>
+  </div>
+</section>
+
+<section id="nobel" class="highlight" aria-labelledby="nobel-title">
+  <div class="container">
+    <div class="highlight-box reveal">
+      <div class="highlight-mark" aria-hidden="true">2026</div>
+      <div>
+        <h2 class="sec-label" id="nobel-title">{t["nobel_label"]}</h2>
+        <p>{t["nobel_text"]}</p>
+        <a href="https://www.nobelprize.org/prizes/physics/2026/press-release/" target="_blank" rel="noopener">{t["nobel_link"]} →</a>
+      </div>
     </div>
   </div>
 </section>

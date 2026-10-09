@@ -10,16 +10,19 @@ T = {
   hero_tag="#AI4Claims · Cologne/Bonn region · Germany",
   hero_title="Director of Innovation &amp; Technology at ControlExpert GmbH · Head of Data &amp; AI Center of Excellence at Solvd Group",
   hero_quote="Own the brain. Rent the body.",
-  hero_badges=["Agentic AI","Computer Vision","Generative AI","InsurTech","Physics PhD"],
+  hero_badges=["Agentic AI","Computer Vision","Generative AI","InsurTech","IceCube PhD"],
   btn_pri="Projects & research", btn_sec="Get in touch",
   hero_stats=[("173+","Publications"),("25.5k","Citations"),("6","Patents"),("75+","Data &amp; AI specialists led")],
   photo_alt="Portrait of Dr. Sebastian Schoenen",
+  nobel_label="Nobel Prize in Physics 2026",
+  nobel_text="The 2026 Nobel Prize in Physics was awarded to Francis Halzen for decisive contributions to the IceCube Neutrino Observatory and the discovery of high-energy neutrinos of astrophysical origin. My doctoral research was part of that discovery: the six-year measurement of the cosmic muon neutrino flux from the Northern Hemisphere, which excluded a purely atmospheric origin at 5.6σ (The Astrophysical Journal, 2016), carried out within the IceCube Collaboration.",
+  nobel_link="Nobel Prize press release",
   about_label="About", about_title="AI leadership. <span>From strategy to production.</span>",
   about_p=[
     "I lead the Data &amp; AI Center of Excellence of Solvd Group, the claims and repair management group serving <strong>more than 200 customers</strong> from insurance, leasing and fleet companies in <strong>46 countries</strong>, and I am Director of Innovation &amp; Technology at ControlExpert GmbH. The mandate covers innovation and the group's Data &amp; AI product portfolio: an organisation of <strong>75+ data and AI specialists</strong> in agentic AI, computer vision, generative AI and NLP, with budget ownership for the portfolio.",
     "The vision we work towards is simple: drivers anywhere get their claim settled fairly on the same day. The Center of Excellence is the technological engine behind it. We build approaches beyond what current solutions can do and turn them into customer value. ClaimsPilot, our agentic claims platform, is the most visible result so far.",
     "As overall business owner for data and AI products I own the decisions that determine whether that happens at scale: research and innovation strategy, make-or-buy for AI products (own the brain, rent the body: the differentiating intelligence is ours, the infrastructure is rented), the IP strategy behind six patents, MLOps, and the operating model of the CoE. Platform and cloud strategy sit with IT; I am their key stakeholder and align them with the product strategy. AI governance is defined centrally by the Chief Data Officer and implemented by me: responsible-AI rules, EU AI Act requirements and model risk management for AI that decides on real claims.",
-    "Research stays part of the job, through an active network of universities and institutes. Before moving into industry I was a researcher at RWTH Aachen myself, with a Ph.D. in astroparticle physics. It still shapes how I lead: measure first, then decide.",
+    "Research stays part of the job, through an active network of universities and institutes. Before moving into industry I was a researcher at RWTH Aachen myself, with a Ph.D. in astroparticle physics in the IceCube Collaboration. That work is part of the discovery recognised with the Nobel Prize in Physics 2026. It still shapes how I lead: measure first, then decide.",
   ],
   about_cards=[
     ("phd","Ph.D. in Physics","RWTH Aachen University · Astroparticle physics · 2012–2017"),
@@ -136,7 +139,7 @@ T = {
     ("J. Design Research · Dec 2022","Identification of similar design principles of passenger cars using deep neural networks","A network trained to classify car brands from images is repurposed, via systematic error analysis, to identify car models that follow similar design principles across manufacturers.","Journal of Design Research, Vol. 20, No. 2"),
     ("IEEE ITSC · Oct 2021","Fully automated, realistic license plate substitution in real-life images","CycleGAN-based system replacing licence plates in image crops with customised patterns while preserving pose, lighting and sharpness, trained without labels. Validated via plate-recognition experiments, a human acceptance study and FID.","Intelligent Transportation Systems Conference, Indianapolis"),
    ]),
-   ("Physics – IceCube Neutrino Observatory",[
+   ("Physics – IceCube Neutrino Observatory (Nobel Prize in Physics 2026)",[
     ("Dissertation · Jul 2017","Discovery and characterization of a diffuse astrophysical muon neutrino flux with the IceCube Neutrino Observatory","Doctoral thesis, RWTH Aachen University, III. Physikalisches Institut B.","<a href=\"https://publications.rwth-aachen.de/record/696221\" target=\"_blank\" rel=\"noopener\">publications.rwth-aachen.de</a>"),
     ("Astrophysical Journal · Dec 2016","Observation and characterization of a cosmic muon neutrino flux from the Northern Hemisphere using six years of IceCube data","Excludes a purely atmospheric origin of the highest-energy muon neutrino events at 5.6σ and characterises the astrophysical flux with a hard spectral index of 2.13 ± 0.13; the highest-energy event has a reconstructed muon energy of 4.5 PeV.","The Astrophysical Journal, Vol. 833, No. 1 · IceCube Collaboration"),
     ("Science · Jul 2018","Multimessenger observations of a flaring blazar coincident with high-energy neutrino IceCube-170922A","First identification of a likely source of high-energy cosmic neutrinos: the IceCube event of 22 September 2017 coincided with a gamma-ray flare of the blazar TXS 0506+056, observed by 18 telescopes across the electromagnetic spectrum.","Science, Vol. 361, eaat1378 · IceCube, Fermi-LAT, MAGIC et al."),
@@ -193,16 +196,19 @@ T = {
   hero_tag="#AI4Claims · Region Köln/Bonn · Deutschland",
   hero_title="Director Innovation &amp; Technology bei der ControlExpert GmbH · Leiter des Data &amp; AI Center of Excellence der Solvd Group",
   hero_quote="Own the brain. Rent the body.",
-  hero_badges=["Agentische KI","Computer Vision","Generative KI","InsurTech","Promovierter Physiker"],
+  hero_badges=["Agentische KI","Computer Vision","Generative KI","InsurTech","IceCube-Promotion"],
   btn_pri="Projekte & Forschung", btn_sec="Kontakt aufnehmen",
   hero_stats=[("173+","Publikationen"),("25.5k","Zitationen"),("6","Patente"),("75+","Data- &amp; KI-Spezialisten geführt")],
   photo_alt="Porträt von Dr. Sebastian Schoenen",
+  nobel_label="Physik-Nobelpreis 2026",
+  nobel_text="Der Physik-Nobelpreis 2026 ging an Francis Halzen für entscheidende Beiträge zum IceCube-Neutrino-Observatorium und die Entdeckung hochenergetischer Neutrinos astrophysikalischen Ursprungs. Meine Promotionsforschung war Teil dieser Entdeckung: die Sechs-Jahres-Messung des kosmischen Myon-Neutrino-Flusses von der Nordhemisphäre, die einen rein atmosphärischen Ursprung mit 5,6σ ausschloss (The Astrophysical Journal, 2016), durchgeführt innerhalb der IceCube Collaboration.",
+  nobel_link="Pressemitteilung des Nobelpreis-Komitees",
   about_label="Über mich", about_title="KI-Führung. <span>Von der Strategie bis zur Produktion.</span>",
   about_p=[
     "Ich leite das Data &amp; AI Center of Excellence der Solvd Group, der Schaden- und Reparaturmanagement-Gruppe mit <strong>mehr als 200 Kunden</strong> aus Versicherungs-, Leasing- und Flottenunternehmen in <strong>46 Ländern</strong>, und bin Director Innovation &amp; Technology der ControlExpert GmbH. Das Mandat umfasst Innovation und das Data-&amp;-AI-Produktportfolio der Gruppe: eine Organisation von <strong>über 75 Data- und KI-Spezialisten</strong> in agentischer KI, Computer Vision, generativer KI und NLP, mit Budgetverantwortung für das Portfolio.",
     "Die Vision, auf die wir hinarbeiten, ist einfach: Autofahrer bekommen ihren Schaden überall am selben Tag fair ersetzt. Das Center of Excellence ist der technologische Motor dahinter. Wir entwickeln Ansätze jenseits dessen, was heutige Lösungen können, und machen daraus Kundennutzen. ClaimsPilot, unsere agentische Schadenplattform, ist bisher das sichtbarste Ergebnis.",
     "Als Gesamt-Business-Owner für Daten- und KI-Produkte verantworte ich die Entscheidungen, die bestimmen, ob das im großen Maßstab gelingt: Forschungs- und Innovationsstrategie, Make-or-Buy für KI-Produkte („Own the brain, rent the body“: die differenzierende Intelligenz gehört uns, die Infrastruktur wird gemietet), die IP-Strategie hinter sechs Patenten, MLOps und das Betriebsmodell des CoE. Plattform- und Cloud-Strategie liegen bei der IT; dort bin ich zentraler Stakeholder und richte sie an der Produktstrategie aus. KI-Governance wird zentral vom Chief Data Officer definiert und von mir umgesetzt: Responsible-AI-Regeln, Anforderungen des EU AI Act und Modellrisikomanagement für KI, die über echte Schadenfälle entscheidet.",
-    "Forschung bleibt Teil der Arbeit, über ein aktives Netzwerk aus Universitäten und Instituten. Vor meiner Zeit in der Industrie habe ich selbst an der RWTH Aachen geforscht und in Astroteilchenphysik promoviert. Das prägt bis heute, wie ich führe: erst messen, dann entscheiden.",
+    "Forschung bleibt Teil der Arbeit, über ein aktives Netzwerk aus Universitäten und Instituten. Vor meiner Zeit in der Industrie habe ich selbst an der RWTH Aachen geforscht und in der IceCube Collaboration in Astroteilchenphysik promoviert. Diese Arbeit ist Teil der Entdeckung, die 2026 mit dem Physik-Nobelpreis gewürdigt wurde. Das prägt bis heute, wie ich führe: erst messen, dann entscheiden.",
   ],
   about_cards=[
     ("phd","Promotion in Physik","RWTH Aachen · Astroteilchenphysik · 2012–2017"),
@@ -319,7 +325,7 @@ T = {
     ("J. Design Research · Dez. 2022","Identification of similar design principles of passenger cars using deep neural networks","Ein auf Markenklassifikation trainiertes Netz wird per systematischer Fehleranalyse genutzt, um Fahrzeugmodelle mit ähnlichen Designprinzipien über Herstellergrenzen hinweg zu identifizieren.","Journal of Design Research, Vol. 20, No. 2"),
     ("IEEE ITSC · Okt. 2021","Fully automated, realistic license plate substitution in real-life images","CycleGAN-basiertes System, das Kennzeichen in Bildausschnitten durch beliebige Muster ersetzt und dabei Pose, Beleuchtung und Schärfe erhält, trainiert ohne Labels. Validiert über Kennzeichenerkennung, Akzeptanzstudie und FID.","Intelligent Transportation Systems Conference, Indianapolis"),
    ]),
-   ("Physik – IceCube Neutrino Observatory",[
+   ("Physik – IceCube Neutrino Observatory (Physik-Nobelpreis 2026)",[
     ("Dissertation · Juli 2017","Discovery and characterization of a diffuse astrophysical muon neutrino flux with the IceCube Neutrino Observatory","Dissertation, RWTH Aachen, III. Physikalisches Institut B.","<a href=\"https://publications.rwth-aachen.de/record/696221\" target=\"_blank\" rel=\"noopener\">publications.rwth-aachen.de</a>"),
     ("Astrophysical Journal · Dez. 2016","Observation and characterization of a cosmic muon neutrino flux from the Northern Hemisphere using six years of IceCube data","Schließt einen rein atmosphärischen Ursprung der höchstenergetischen Myon-Neutrino-Ereignisse mit 5,6σ aus und charakterisiert den astrophysikalischen Fluss mit hartem Spektralindex 2,13 ± 0,13; das höchstenergetische Ereignis hat eine rekonstruierte Myonenergie von 4,5 PeV.","The Astrophysical Journal, Vol. 833, No. 1 · IceCube Collaboration"),
     ("Science · Juli 2018","Multimessenger observations of a flaring blazar coincident with high-energy neutrino IceCube-170922A","Erste Identifikation einer wahrscheinlichen Quelle hochenergetischer kosmischer Neutrinos: Das IceCube-Ereignis vom 22. September 2017 fiel mit einem Gammastrahlen-Ausbruch des Blazars TXS 0506+056 zusammen, beobachtet von 18 Teleskopen über das gesamte elektromagnetische Spektrum.","Science, Vol. 361, eaat1378 · IceCube, Fermi-LAT, MAGIC u. a."),

@@ -71,20 +71,13 @@ section{padding:100px 2rem;scroll-margin-top:60px}
 .sec-line{width:60px;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:2px;margin-bottom:2.5rem}
 .sec-intro{color:var(--muted);font-size:.95rem;max-width:640px;margin:-1.5rem 0 2.5rem;line-height:1.7}
 
-/* ── HIGHLIGHT (Nobel) ── */
-.highlight-box{display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:start;background:linear-gradient(135deg,rgba(108,99,255,.14),rgba(56,189,248,.07)),var(--card);border:1px solid rgba(167,139,250,.4);border-radius:16px;padding:1.6rem 1.8rem;margin-top:2.5rem}
-.highlight-mark{font-size:1.5rem;font-weight:900;color:var(--acc2);line-height:1;padding:.6rem .75rem;border:2px solid rgba(167,139,250,.5);border-radius:12px;letter-spacing:-.02em}
-.highlight-box h3.sec-label{font-size:.72rem;margin-bottom:.4rem}
-.highlight-box p{font-size:.92rem;color:var(--txt);line-height:1.7;margin-bottom:.6rem}
-.highlight-box a{color:var(--acc3);text-decoration:none;font-size:.85rem;font-weight:600}
-.highlight-box a:hover{text-decoration:underline}
-@media(max-width:800px){.highlight-box{grid-template-columns:1fr;gap:.8rem}.highlight-mark{width:fit-content}}
-
 /* ── ABOUT ── */
 #about{background:var(--bg2)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
 .about-text p{color:var(--muted);line-height:1.8;margin-bottom:1rem;font-size:.95rem}
 .about-text p strong{color:var(--txt)}
+.about-text p a{color:var(--acc3);text-decoration:none}
+.about-text p a:hover{text-decoration:underline}
 .about-cards{display:flex;flex-direction:column;gap:1rem}
 .info-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.4rem;display:flex;align-items:center;gap:1rem;transition:border-color .2s}
 .info-card:hover{border-color:rgba(108,99,255,.35)}

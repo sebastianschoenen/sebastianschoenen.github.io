@@ -175,14 +175,6 @@ def render(t):
       <div class="about-text">{about_p}</div>
       <div class="about-cards">{about_cards}</div>
     </div>
-    <div class="highlight-box reveal" id="nobel">
-      <div class="highlight-mark" aria-hidden="true">2026</div>
-      <div>
-        <h3 class="sec-label">{t["nobel_label"]}</h3>
-        <p>{t["nobel_text"]}</p>
-        <a href="https://www.nobelprize.org/prizes/physics/2026/press-release/" target="_blank" rel="noopener">{t["nobel_link"]} →</a>
-      </div>
-    </div>
   </div>
 </section>
 

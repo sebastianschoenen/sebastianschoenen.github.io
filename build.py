@@ -30,10 +30,10 @@ def jsonld(t):
       "@context":"https://schema.org","@type":"Person","@id":SITE+"#person",
       "name":"Sebastian Schoenen","honorificPrefix":"Dr.","givenName":"Sebastian","familyName":"Schoenen",
       "alternateName":"Dr. Sebastian Schoenen","url":SITE,"image":SITE+PHOTO,
-      "jobTitle":["Director of Innovation & Technology","Head of Data & AI Center of Excellence"],
+      "jobTitle":["Head of Data & AI Center of Excellence","Director of Innovation & Technology"],
       "worksFor":[
-        {"@type":"Organization","name":"ControlExpert GmbH","url":"https://www.controlexpert.com/","address":{"@type":"PostalAddress","addressLocality":"Langenfeld (Rheinland)","addressCountry":"DE"}},
-        {"@type":"Organization","name":"Solvd Group","url":"https://solvd.group/"}],
+        {"@type":"Organization","name":"Solvd Group","url":"https://solvd.group/"},
+        {"@type":"Organization","name":"ControlExpert GmbH","url":"https://www.controlexpert.com/","address":{"@type":"PostalAddress","addressLocality":"Langenfeld (Rheinland)","addressCountry":"DE"}}],
       "alumniOf":{"@type":"CollegeOrUniversity","name":"RWTH Aachen University","url":"https://www.rwth-aachen.de/"},
       "hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"degree","name":"Ph.D. in Physics","recognizedBy":{"@type":"CollegeOrUniversity","name":"RWTH Aachen University"}},
       "address":{"@type":"PostalAddress","addressRegion":"North Rhine-Westphalia","addressCountry":"DE"},
@@ -166,19 +166,6 @@ def render(t):
   </div>
 </section>
 
-<section id="nobel" class="highlight" aria-labelledby="nobel-title">
-  <div class="container">
-    <div class="highlight-box reveal">
-      <div class="highlight-mark" aria-hidden="true">2026</div>
-      <div>
-        <h2 class="sec-label" id="nobel-title">{t["nobel_label"]}</h2>
-        <p>{t["nobel_text"]}</p>
-        <a href="https://www.nobelprize.org/prizes/physics/2026/press-release/" target="_blank" rel="noopener">{t["nobel_link"]} →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="about">
   <div class="container">
     <div class="sec-label">{t["about_label"]}</div>
@@ -187,6 +174,14 @@ def render(t):
     <div class="about-grid">
       <div class="about-text">{about_p}</div>
       <div class="about-cards">{about_cards}</div>
+    </div>
+    <div class="highlight-box reveal" id="nobel">
+      <div class="highlight-mark" aria-hidden="true">2026</div>
+      <div>
+        <h3 class="sec-label">{t["nobel_label"]}</h3>
+        <p>{t["nobel_text"]}</p>
+        <a href="https://www.nobelprize.org/prizes/physics/2026/press-release/" target="_blank" rel="noopener">{t["nobel_link"]} →</a>
+      </div>
     </div>
   </div>
 </section>

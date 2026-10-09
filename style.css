@@ -72,14 +72,13 @@ section{padding:100px 2rem;scroll-margin-top:60px}
 .sec-intro{color:var(--muted);font-size:.95rem;max-width:640px;margin:-1.5rem 0 2.5rem;line-height:1.7}
 
 /* ── HIGHLIGHT (Nobel) ── */
-.highlight{padding:0 2rem;background:var(--bg2)}
-.highlight-box{display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:start;background:linear-gradient(135deg,rgba(108,99,255,.14),rgba(56,189,248,.07)),var(--card);border:1px solid rgba(167,139,250,.4);border-radius:16px;padding:1.6rem 1.8rem;transform:translateY(-50px);margin-bottom:-50px;position:relative;z-index:3;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.highlight-box{display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:start;background:linear-gradient(135deg,rgba(108,99,255,.14),rgba(56,189,248,.07)),var(--card);border:1px solid rgba(167,139,250,.4);border-radius:16px;padding:1.6rem 1.8rem;margin-top:2.5rem}
 .highlight-mark{font-size:1.5rem;font-weight:900;color:var(--acc2);line-height:1;padding:.6rem .75rem;border:2px solid rgba(167,139,250,.5);border-radius:12px;letter-spacing:-.02em}
-.highlight-box h2.sec-label{font-size:.72rem;margin-bottom:.4rem}
+.highlight-box h3.sec-label{font-size:.72rem;margin-bottom:.4rem}
 .highlight-box p{font-size:.92rem;color:var(--txt);line-height:1.7;margin-bottom:.6rem}
 .highlight-box a{color:var(--acc3);text-decoration:none;font-size:.85rem;font-weight:600}
 .highlight-box a:hover{text-decoration:underline}
-@media(max-width:800px){.highlight-box{grid-template-columns:1fr;gap:.8rem;transform:none;margin-bottom:0;margin-top:0}.highlight{padding:2rem 1rem 0}.highlight-mark{width:fit-content}}
+@media(max-width:800px){.highlight-box{grid-template-columns:1fr;gap:.8rem}.highlight-mark{width:fit-content}}
 
 /* ── ABOUT ── */
 #about{background:var(--bg2)}

@@ -30,7 +30,7 @@ def jsonld(t):
       "@context":"https://schema.org","@type":"Person","@id":SITE+"#person",
       "name":"Sebastian Schoenen","honorificPrefix":"Dr.","givenName":"Sebastian","familyName":"Schoenen",
       "alternateName":"Dr. Sebastian Schoenen","url":SITE,"image":SITE+PHOTO,
-      "jobTitle":["Head of Data & AI Center of Excellence","Director of Innovation & Technology"],
+      "jobTitle":["Chief Data & AI Officer","Prokurist"],
       "worksFor":[
         {"@type":"Organization","name":"Solvd Group","url":"https://solvd.group/"},
         {"@type":"Organization","name":"ControlExpert GmbH","url":"https://www.controlexpert.com/","address":{"@type":"PostalAddress","addressLocality":"Langenfeld (Rheinland)","addressCountry":"DE"}}],
